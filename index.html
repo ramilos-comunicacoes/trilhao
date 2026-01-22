@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2º Trilhão de Tianguá Off Road</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+    <style>
+        /* ===== CONFIGURAÇÕES GERAIS ===== */
+        :root {
+            --primary-color: #D35400;
+            --secondary-color: #2C3E50;
+            --accent-color: #E74C3C;
+            --dark-color: #1A252F;
+            --light-color: #ECF0F1;
+            --gold-color: #FFD700;
+            --silver-color: #C0C0C0;
+            --bronze-color: #CD7F32;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 110px;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: var(--light-color);
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(139, 69, 19, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(211, 84, 0, 0.1) 0%, transparent 20%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        /* ===== PARTÍCULAS ===== */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* ===== HEADER ===== */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            background: rgba(26, 37, 47, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 3px solid var(--primary-color);
+            transition: all 0.4s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 120px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size:24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #f39c12, #e74c3c, #d35400);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-item {
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 15px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+            background: rgba(211, 84, 0, 0.1);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 80%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-color);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* ===== HERO BANNER ===== */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 180px; /* AVENTURA... */
+        }
+
+        .hero-banner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            opacity: 0.4;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.8), rgba(26,37,47,0.9));
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 1000px;
+            padding: 0 20px;
+            z-index: 1;
+        }
+
+        /* LOGO GRANDE E CENTRALIZADA NO HERO */
+        .hero-logo {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            margin: 0 auto 30px;
+            display: block;
+            filter: drop-shadow(0 0 20px rgba(211, 84, 0, 0.7));
+            animation: logo-pulse 3s infinite;
+        }
+
+        @keyframes logo-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 50px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        /* ===== CONTADOR REGRESSIVO ===== */
+        .countdown-container {
+            margin: 40px auto 60px;
+            max-width: 900px;
+            background: rgba(26, 37, 47, 0.8);
+            border-radius: 20px;
+            padding: 40px 30px;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .countdown-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .countdown-item {
+            background: linear-gradient(145deg, rgba(211, 84, 0, 0.9), rgba(139, 69, 19, 0.9));
+            border-radius: 15px;
+            padding: 30px 20px;
+            min-width: 160px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(211, 84, 0, 0.4);
+        }
+
+        .countdown-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .countdown-label {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .countdown-note {
+            margin-top: 25px;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        /* ===== BOTÕES PRINCIPAIS ===== */
+        .hero-cta, .registration-cta {
+            display: inline-block;
+            padding: 20px 50px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: white;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            animation: pulse-glow 2s infinite;
+            box-shadow: 0 15px 35px rgba(211, 84, 0, 0.5);
+        }
+
+        .hero-cta:hover, .registration-cta:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(211, 84, 0, 0.7);
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 15px 35px rgba(211, 84, 0, 0.5); }
+            50% { box-shadow: 0 15px 45px rgba(211, 84, 0, 0.8); }
+            100% { box-shadow: 0 15px 35px rgba(211, 84, 0, 0.5); }
+        }
+
+        /* ===== MOTOCICLETA ANIMADA ===== */
+        .trail-bike {
+            position: absolute;
+            bottom: 1px;
+            width: 260px;
+            height: 170px;
+            z-index: 1;
+            animation: bike-move 20s linear infinite;
+        }
+
+        .bike-img {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 10px rgba(211, 84, 0, 0.7));
+        }
+
+        @keyframes bike-move {
+            0% { left: -250px; transform: scaleX(1); }
+            49% { transform: scaleX(1); }
+            50% { left: 100%; transform: scaleX(-1); }
+            99% { transform: scaleX(-1); }
+            100% { left: -250px; transform: scaleX(1); }
+        }
+
+        /* ===== SEÇÃO SOBRE ===== */
+        .about-section {
+            background: rgba(26, 37, 47, 0.8);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 5px;
+            background: linear-gradient(135deg, #D35400, #8B4513, #2C3E50);
+            border-radius: 3px;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: rgba(236, 240, 241, 0.8);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(44, 62, 80, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.4s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            background: rgba(44, 62, 80, 0.8);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #D35400, #8B4513, #2C3E50);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        /* ===== GALERIA DE VÍDEOS ===== */
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .video-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 280px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(211, 84, 0, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all 0.4s ease;
+            border: 3px solid white;
+        }
+
+        .video-item:hover .video-play-btn {
+            background: var(--primary-color);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        /* ===== MAPA ===== */
+        .trail-map-section {
+            background: rgba(10, 10, 10, 0.9);
+        }
+
+        .map-container {
+            position: relative;
+            height: 650px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .trail-map {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ===== PATROCINADORES - HIERARQUIA VISUAL ===== */
+        .sponsors-section {
+            background: rgba(26, 37, 47, 0.8);
+        }
+
+        .sponsors-category {
+            margin-bottom: 100px;
+        }
+
+        .sponsors-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .sponsor-category-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--gold-color);
+            color: var(--gold-color);
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .sponsor-category-title.silver {
+            border-bottom-color: var(--silver-color);
+            color: var(--silver-color);
+        }
+
+        .sponsor-category-title.bronze {
+            border-bottom-color: var(--bronze-color);
+            color: var(--bronze-color);
+        }
+
+        .sponsor-category-title.normal {
+            border-bottom-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .sponsor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        /* CARDS DE PATROCINADORES COM TAMANHOS DIFERENTES */
+        .sponsor-card {
+            background: rgba(44, 62, 80, 0.9);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sponsor-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .sponsor-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(135deg, #D35400, #8B4513, #2C3E50);
+        }
+
+        /* MASTERS - MAIORES (3K) */
+        .sponsor-card.master {
+            height: 300px;
+            border: 3px solid var(--gold-color);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        /* VIPS - MÉDIOS (2K) */
+        .sponsor-card.vip {
+            height: 250px;
+            border: 3px solid var(--silver-color);
+            box-shadow: 0 0 20px rgba(192, 192, 192, 0.3);
+            padding: 30px 25px;
+        }
+
+        /* STANDARD - MENORES (1K) */
+        .sponsor-card.standard {
+            height: 220px;
+            border: 3px solid var(--bronze-color);
+            box-shadow: 0 0 15px rgba(205, 127, 50, 0.3);
+            padding: 25px 20px;
+        }
+
+        /* NORMAIS - PEQUENOS (<1K) */
+        .sponsor-card.normal {
+            height: 200px;
+            border: 3px solid var(--primary-color);
+            padding: 20px 15px;
+        }
+
+        /* LOGOS COM TAMANHOS DIFERENTES */
+        .sponsor-logo {
+            max-width: 100%;
+            margin-bottom: 25px;
+            transition: all 0.4s ease;
+            object-fit: contain;
+        }
+
+        .sponsor-card:hover .sponsor-logo {
+            transform: scale(1.05);
+        }
+
+        .sponsor-card.master .sponsor-logo {
+            max-height: 140px;
+        }
+
+        .sponsor-card.vip .sponsor-logo {
+            max-height: 110px;
+        }
+
+        .sponsor-card.standard .sponsor-logo {
+            max-height: 90px;
+        }
+
+        .sponsor-card.normal .sponsor-logo {
+            max-height: 70px;
+        }
+
+        /* NOMES COM TAMANHOS DIFERENTES */
+        .sponsor-name {
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--light-color);
+        }
+
+        .sponsor-card.master .sponsor-name {
+            font-size: 1.8rem;
+        }
+
+        .sponsor-card.vip .sponsor-name {
+            font-size: 1.5rem;
+        }
+
+        .sponsor-card.standard .sponsor-name {
+            font-size: 1.3rem;
+        }
+
+        .sponsor-card.normal .sponsor-name {
+            font-size: 1.1rem;
+        }
+
+        .sponsor-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 5px;
+            background: rgba(211, 84, 0, 0.1);
+        }
+
+        .sponsor-link:hover {
+            color: var(--accent-color);
+            background: rgba(211, 84, 0, 0.2);
+            transform: translateY(-3px);
+        }
+
+        /* ===== BENEFÍCIOS ===== */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .benefit-card {
+            background: rgba(44, 62, 80, 0.9);
+            padding: 50px 35px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border-top: 5px solid var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            border-top: 5px solid var(--accent-color);
+        }
+
+        .benefit-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #D35400, #8B4513, #2C3E50);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 30px;
+            color: white;
+            transition: all 0.4s ease;
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* ===== GALERIA ===== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 280px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+
+        /* ===== INSCRIÇÃO ===== */
+        .registration-section {
+            background: linear-gradient(135deg, rgba(26, 37, 47, 0.95), rgba(211, 84, 0, 0.15));
+            text-align: center;
+        }
+
+        .registration-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+
+        .reg-feature {
+            background: rgba(44, 62, 80, 0.8);
+            padding: 40px 30px;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-color);
+            transition: all 0.4s ease;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .reg-feature:hover {
+            transform: translateY(-10px);
+            background: rgba(44, 62, 80, 0.95);
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .registration-info {
+            margin-top: 50px;
+            font-size: 1.3rem;
+            background: rgba(44, 62, 80, 0.6);
+            padding: 25px;
+            border-radius: 15px;
+            display: inline-block;
+            border: 2px solid var(--primary-color);
+        }
+
+        /* ===== RODAPÉ ===== */
+        .main-footer {
+            background: var(--dark-color);
+            padding: 80px 0 40px;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo-img {
+            height: 90px;
+            width: auto;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            color: var(--light-color);
+            font-size: 1.8rem;
+            transition: all 0.4s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background: var(--primary-color);
+            transform: translateY(-8px) rotate(10deg);
+            box-shadow: 0 15px 25px rgba(211, 84, 0, 0.4);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom i.fa-heart {
+            color: var(--accent-color);
+            margin: 0 5px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        /* ===== ANIMAÇÕES DE ENTRADA ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 1200px) {
+            .hero-logo {
+                max-width: 500px;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 110px;
+                left: 0;
+                width: 100%;
+                background: rgba(26, 37, 47, 0.98);
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 0;
+                gap: 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.4s ease;
+            }
+            
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-item {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-link {
+                display: block;
+                padding: 20px;
+            }
+            
+            .hero-logo {
+                max-width: 400px;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.6rem;
+            }
+            
+            .trail-bike {
+                width: 200px;
+                height: 140px;
+                bottom: 30px;
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 0;
+            }
+            
+            .hero-logo {
+                max-width: 350px;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .trail-bike {
+                display: none;
+            }
+            
+            .sponsor-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-logo {
+                max-width: 280px;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .sponsor-card {
+                padding: 25px 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .social-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .hero-logo {
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- PARTÍCULAS DE FUNDO -->
+    <div id="particles-js"></div>
+    
+    <!-- CABEÇALHO -->
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="2º Trilhão Tianguá Off Road" class="logo-img">
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">Sobre</a></li>
+                <li class="nav-item"><a href="#trail" class="nav-link">Trilha</a></li>
+                <li class="nav-item"><a href="#sponsors" class="nav-link">Patrocinadores</a></li>
+                <li class="nav-item"><a href="#benefits" class="nav-link">Benefícios</a></li>
+                <li class="nav-item"><a href="#gallery" class="nav-link">Galeria</a></li>
+                <li class="nav-item"><a href="#registration" class="nav-link">Inscrição</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+    
+    <!-- BANNER PRINCIPAL -->
+    <section class="hero-section" id="home">
+        <img src="assets/images/banner.png" alt="Banner 2º Trilhão Tianguá" class="hero-banner">
+        <div class="hero-overlay"></div>
+        
+        <div class="trail-bike">
+            <img src="assets/images/moto.png" alt="Moto de Trilha" class="bike-img">
+        </div>
+        
+        <div class="container hero-content">
+            <!-- LOGO GRANDE E CENTRALIZADA -->
+            <img src="assets/images/logo-grande.png" alt="2º Trilhão Tianguá Off Road" class="hero-logo">
+            
+            <p class="hero-subtitle">A maior trilha off-road do Nordeste brasileiro. 120km de adrenalina entre Tianguá, Ubajara e Viçosa do Ceará.</p>
+            
+            <div class="countdown-container fade-in">
+                <h2 class="countdown-title">CONTAGEM REGRESSIVA PARA A AVENTURA</h2>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">Dias</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Horas</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Minutos</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Segundos</div>
+                    </div>
+                </div>
+                <!-- DATA ALTERADA PARA 28 DE MARÇO -->
+                <p class="countdown-note">Inscrições limitadas! <strong>Não perca a data limite: 28 de Março de 2026</strong></p>
+            </div>
+            
+            <a href="#registration" class="hero-cta">INSCREVA-SE AGORA</a>
+        </div>
+    </section>
+    
+    <!-- SOBRE O EVENTO -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sobre o Evento</h2>
+                <p class="section-subtitle">Conheça a maior aventura off-road da região, que reúne apaixonados por adrenalina e veículos 4x4.</p>
+            </div>
+            
+            <div class="about-content fade-in">
+                <div class="about-text">
+                    <h3>2º TRILHÃO TIANGUÁ OFF ROAD</h3>
+                    <p>Uma experiência única que desafia os limites de homens e máquinas. Percorrendo os caminhos mais radicais entre as cidades de <strong>Tianguá, Ubajara e Viçosa do Ceará</strong>, essa trilha se tornou o maior evento off-road da região Nordeste.</p>
+                    <p>Com mais de 120km de percurso off-road, o evento reúne centenas de participantes e milhares de espectadores, movimentando a economia local e promovendo o turismo de aventura.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
+                            <div class="feature-text">120km de trilha off-road</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
+                            <div class="feature-text">2 dias de aventura</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-users"></i></div>
+                            <div class="feature-text">+500 participantes</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-trophy"></i></div>
+                            <div class="feature-text">Premiação especial</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-gallery">
+                    <div class="video-item" data-lightbox="video-gallery">
+                        <video src="assets/images/videos/video-1.mp4" alt="Vídeo da Trilha" class="video-thumbnail"></video>
+                        <div class="video-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="video-item" data-lightbox="video-gallery">
+                        <video src="assets/images/videos/video-2.mp4" alt="Momentos Épicos" class="video-thumbnail"></video>
+                        <div class="video-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- MAPA DA TRILHA -->
+    <section class="trail-map-section" id="trail">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Mapa da Trilha</h2>
+                <p class="section-subtitle">Acompanhe a rota completa da aventura entre Tianguá, Ubajara e Viçosa do Ceará.</p>
+            </div>
+            
+            <div class="map-container fade-in">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7950.112267414093!2d-41.000000!3d-3.733000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwNDMnNTkuMCJTIDQxwrAwMCcwMC4wIlc!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" 
+                        class="trail-map" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+    
+    <!-- PATROCINADORES COM HIERARQUIA VISUAL -->
+    <section class="sponsors-section" id="sponsors">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nossos Patrocinadores</h2>
+                <p class="section-subtitle">Conheça as empresas que tornam possível essa grande aventura off-road.</p>
+            </div>
+            
+            <!-- PATROCINADORES MASTERS (MAIORES) -->
+            <div class="sponsors-category fade-in">
+                <h3 class="sponsor-category-title">Patrocinadores Masters</h3>
+                <div class="sponsor-grid">
+                    <div class="sponsor-card master">
+                        <img src="assets/images/sponsors/master-1.png" alt="Patrocinador Master" class="sponsor-logo">
+                        <div class="sponsor-name">Patrocinador Master 1</div>
+                        <a href="https://patrocinador1.com" class="sponsor-link" target="_blank">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    
+                    <div class="sponsor-card master">
+                        <img src="assets/images/sponsors/master-2.png" alt="Patrocinador Master" class="sponsor-logo">
+                        <div class="sponsor-name">Patrocinador Master 2</div>
+                        <a href="https://patrocinador2.com" class="sponsor-link" target="_blank">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    
+                    <div class="sponsor-card master">
+                        <img src="assets/images/sponsors/master-3.png" alt="Patrocinador Master" class="sponsor-logo">
+                        <div class="sponsor-name">Patrocinador Master 3</div>
+                        <a href="https://patrocinador3.com" class="sponsor-link" target="_blank">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PATROCINADORES VIPS (MÉDIOS) -->
+            <div class="sponsors-category fade-in">
+                <h3 class="sponsor-category-title silver">Patrocinadores VIPs</h3>
+                <div class="sponsor-grid">
+                    <div class="sponsor-card vip">
+                        <img src="assets/images/sponsors/vip-1.png" alt="Patrocinador VIP" class="sponsor-logo">
+                        <div class="sponsor-name">Patrocinador VIP 1</div>
+                        <a href="https://patrocinador1.com" class="sponsor-link" target="_blank">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    
+                    <div class="sponsor-card vip">
+                        <img src="assets/images/sponsors/vip-2.png" alt="Patrocinador VIP" class="sponsor-logo">
+                        <div class="sponsor-name">Patrocinador VIP 2</div>
+                        <a href="https://patrocinador2.com" class="sponsor-link" target="_blank">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    
+                    <div class="sponsor-card vip">
+                        <img src="assets/images/sponsors/vip-3.png" alt="Patrocinador VIP" class="sponsor-logo">
+                        <div class="sponsor-name">Patrocinador VIP 3</div>
+                        <a href="https://patrocinador3.com" class="sponsor-link" target="_blank">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    
+                    <div class="sponsor-card vip">
+                        <img src="assets/images/sponsors/vip-4.png" alt="Patrocinador VIP" class="sponsor-logo">
+                        <div class="sponsor-name">Patrocinador VIP 4</div>
+                        <a href="https://patrocinador4.com" class="sponsor-link" target="_blank">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PATROCINADORES STANDARD (MENORES) -->
+            <div class="sponsors-category fade-in">
+                <h3 class="sponsor-category-title bronze">Patrocinadores Standard</h3>
+                <div class="sponsor-grid">
+                    <div class="sponsor-card standard">
+                        <img src="assets/images/sponsors/standard-1.png" alt="Patrocinador Standard" class="sponsor-logo">
+                        <div class="sponsor-name">Patrocinador Standard 1</div>
+                        <a href="https://patrocinador1.com" class="sponsor-link" target="_blank">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    
+                    <div class="sponsor-card standard">
+                        <img src="assets/images/sponsors/standard-2.png" alt="Patrocinador Standard" class="sponsor-logo">
+                        <div class="sponsor-name">Patrocinador Standard 2</div>
+                        <a href="https://patrocinador2.com" class="sponsor-link" target="_blank">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    
+                    <div class="sponsor-card standard">
+                        <img src="assets/images/sponsors/standard-3.png" alt="Patrocinador Standard" class="sponsor-logo">
+                        <div class="sponsor-name">Patrocinador Standard 3</div>
+                        <a href="https://patrocinador3.com" class="sponsor-link" target="_blank">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    
+                    <div class="sponsor-card standard">
+                        <img src="assets/images/sponsors/standard-4.png" alt="Patrocinador Standard" class="sponsor-logo">
+                        <div class="sponsor-name">Patrocinador Standard 4</div>
+                        <a href="https://patrocinador4.com" class="sponsor-link" target="_blank">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    
+                    <div class="sponsor-card standard">
+                        <img src="assets/images/sponsors/standard-5.png" alt="Patrocinador Standard" class="sponsor-logo">
+                        <div class="sponsor-name">Patrocinador Standard 5</div>
+                        <a href="https://patrocinador5.com" class="sponsor-link" target="_blank">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PATROCINADORES NORMAIS (PEQUENOS) -->
+            <div class="sponsors-category fade-in">
+                <h3 class="sponsor-category-title normal">Apoiadores</h3>
+                <div class="sponsor-grid">
+                    <div class="sponsor-card normal">
+                        <img src="assets/images/sponsors/normal-1.png" alt="Apoiador" class="sponsor-logo">
+                        <div class="sponsor-name">Apoiador 1</div>
+                        <a href="https://apoiador1.com" class="sponsor-link" target="_blank">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    
+                    <div class="sponsor-card normal">
+                        <img src="assets/images/sponsors/normal-2.png" alt="Apoiador" class="sponsor-logo">
+                        <div class="sponsor-name">Apoiador 2</div>
+                        <a href="https://apoiador2.com" class="sponsor-link" target="_blank">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    
+                    <div class="sponsor-card normal">
+                        <img src="assets/images/sponsors/normal-3.png" alt="Apoiador" class="sponsor-logo">
+                        <div class="sponsor-name">Apoiador 3</div>
+                        <a href="https://apoiador3.com" class="sponsor-link" target="_blank">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    
+                    <div class="sponsor-card normal">
+                        <img src="assets/images/sponsors/normal-4.png" alt="Apoiador" class="sponsor-logo">
+                        <div class="sponsor-name">Apoiador 4</div>
+                        <a href="https://apoiador4.com" class="sponsor-link" target="_blank">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    
+                    <div class="sponsor-card normal">
+                        <img src="assets/images/sponsors/normal-5.png" alt="Apoiador" class="sponsor-logo">
+                        <div class="sponsor-name">Apoiador 5</div>
+                        <a href="https://apoiador5.com" class="sponsor-link" target="_blank">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    
+                    <div class="sponsor-card normal">
+                        <img src="assets/images/sponsors/normal-6.png" alt="Apoiador" class="sponsor-logo">
+                        <div class="sponsor-name">Apoiador 6</div>
+                        <a href="https://apoiador6.com" class="sponsor-link" target="_blank">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- BENEFÍCIOS -->
+    <section class="benefits-section" id="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Benefícios para Participantes</h2>
+                <p class="section-subtitle">Veja tudo o que você ganha ao participar da maior aventura off-road do Nordeste.</p>
+            </div>
+            
+            <div class="benefits-grid fade-in">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-medal"></i></div>
+                    <h3>Kit Completo do Participante</h3>
+                    <p>Camiseta exclusiva, adesivos, boné e outros brindes dos patrocinadores.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Alimentação nos Pontos de Apoio</h3>
+                    <p>Refeições completas e hidratação durante toda a trilha.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-tools"></i></div>
+                    <h3>Suporte Técnico Especializado</h3>
+                    <p>Equipe de mecânicos e reboque disponível ao longo do percurso.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Seguro de Acidentes</h3>
+                    <p>Cobertura especial para todo o período do evento.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-camera"></i></div>
+                    <h3>Cobertura Fotográfica</h3>
+                    <p>Fotos profissionais de toda a aventura disponíveis para download.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-trophy"></i></div>
+                    <h3>Certificado de Participação</h3>
+                    <p>Certificado especial para marcar essa conquista.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- GALERIA -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Galeria</h2>
+                <p class="section-subtitle">Reviva os melhores momentos das edições anteriores.</p>
+            </div>
+            
+            <div class="gallery-grid fade-in">
+                <a href="assets/images/gallery/foto-1.jpg" class="gallery-item" data-lightbox="gallery">
+                    <img src="assets/images/gallery/foto-1.jpg" alt="Momento da Trilha" class="gallery-img">
+                </a>
+                
+                <a href="assets/images/gallery/foto-2.jpg" class="gallery-item" data-lightbox="gallery">
+                    <img src="assets/images/gallery/foto-2.jpg" alt="Desafio Off-Road" class="gallery-img">
+                </a>
+                
+                <a href="assets/images/gallery/foto-3.jpg" class="gallery-item" data-lightbox="gallery">
+                    <img src="assets/images/gallery/foto-3.jpg" alt="Paisagem Incrível" class="gallery-img">
+                </a>
+                
+                <a href="assets/images/gallery/foto-4.jpg" class="gallery-item" data-lightbox="gallery">
+                    <img src="assets/images/gallery/foto-4.jpg" alt="Concentração Total" class="gallery-img">
+                </a>
+                
+                <a href="assets/images/gallery/foto-5.jpg" class="gallery-item" data-lightbox="gallery">
+                    <img src="assets/images/gallery/foto-5.jpg" alt="Superação" class="gallery-img">
+                </a>
+                
+                <a href="assets/images/gallery/foto-6.jpg" class="gallery-item" data-lightbox="gallery">
+                    <img src="assets/images/gallery/foto-6.jpg" alt="Comunidade Off-Road" class="gallery-img">
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- INSCRIÇÃO -->
+    <section class="registration-section" id="registration">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Garanta Sua Vaga</h2>
+                <p class="section-subtitle">As vagas são limitadas! Inscreva-se agora e faça parte da maior aventura off-road do Nordeste.</p>
+            </div>
+            
+            <div class="registration-content fade-in">
+                <p style="font-size: 1.3rem; max-width: 800px; margin: 0 auto 50px; line-height: 1.8;">
+                    Participe de 2 dias intensos de aventura, superação e muita adrenalina. A trilha inclui suporte técnico, pontos de apoio, seguro e uma experiência inesquecível.
+                </p>
+                
+                <a href="https://forms.google.com/seu-link-de-inscricao" class="registration-cta" target="_blank">
+                    <i class="fas fa-flag-checkered"></i> FAZER INSCRIÇÃO ONLINE
+                </a>
+                
+                <div class="registration-features">
+                    <div class="reg-feature">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Adrenalina Garantida</h3>
+                        <p>120km de trilhas desafiadoras e paisagens incríveis entre Tianguá, Ubajara e Viçosa do Ceará.</p>
+                    </div>
+                    
+                    <div class="reg-feature">
+                        <i class="fas fa-users"></i>
+                        <h3>Comunidade</h3>
+                        <p>Conheça outros apaixonados por off-road e aventura. Networking com pilotos experientes.</p>
+                    </div>
+                    
+                    <div class="reg-feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Segurança Total</h3>
+                        <p>Equipe de apoio, seguro e suporte técnico completo em todos os pontos da trilha.</p>
+                    </div>
+                </div>
+                
+                <div class="registration-info">
+                    <p><i class="fas fa-info-circle"></i> <strong>Vagas limitadas</strong> | Inscrições até 30/02/2026 | Taxa única com todos os benefícios inclusos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- RODAPÉ -->
+    <footer class="main-footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/logo.png" alt="2º Trilhão Tianguá Off Road" class="footer-logo-img">
+                    <p>2º Trilhão Tianguá Off Road - A maior aventura off-road da Serra da Ibiapaba.</p>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contato</h3>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-map-marker-alt"></i> Tianguá - Ubajara - Viçosa, Ceará</li>
+                        <li><i class="fas fa-phone"></i> (88) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@trilhaotiangua.com.br</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h3>Redes Sociais</h3>
+                    <p>Siga-nos e acompanhe todas as novidades:</p>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/2trilhoestiangua" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5588999999999" class="social-icon" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 2º Trilhão Tianguá Off Road. Todos os direitos reservados.</p>
+                <p>Desenvolvido por Ramilos Comunicações</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // INICIALIZAÇÃO
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // PARTÍCULAS DE FUNDO
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: ["#D35400", "#8B4513", "#A0522D"] },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.3, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: { enable: false },
+                    move: { enable: true, speed: 1, direction: "none", random: true }
+                }
+            });
+            
+            // CONTADOR REGRESSIVO - DATA ALTERADA PARA 28 DE MARÇO
+            const eventDate = new Date('2026-03-28T08:00:00').getTime();
+            
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const timeLeft = eventDate - now;
+                
+                if (timeLeft > 0) {
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                    
+                    document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                    
+                    // Efeito de pulso nos números
+                    if (seconds % 2 === 0) {
+                        document.querySelectorAll('.countdown-number').forEach(el => {
+                            el.style.transform = 'scale(1.05)';
+                            el.style.color = '#FFD700';
+                        });
+                    } else {
+                        document.querySelectorAll('.countdown-number').forEach(el => {
+                            el.style.transform = 'scale(1)';
+                            el.style.color = 'white';
+                        });
+                    }
+                } else {
+                    document.getElementById('days').textContent = '00';
+                    document.getElementById('hours').textContent = '00';
+                    document.getElementById('minutes').textContent = '00';
+                    document.getElementById('seconds').textContent = '00';
+                }
+            }
+            
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+            
+            // MENU MOBILE
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navMenu = document.getElementById('navMenu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                this.innerHTML = navMenu.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Fechar menu ao clicar em um link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    
+                    document.querySelectorAll('.nav-link').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+            });
+            
+            // SCROLL SUAVE
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 110,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // HEADER SCROLL EFFECT
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.main-header');
+                if (window.scrollY > 100) {
+                    header.style.padding = '15px 0';
+                    header.style.background = 'rgba(26, 37, 47, 0.98)';
+                } else {
+                    header.style.padding = '20px 0';
+                    header.style.background = 'rgba(26, 37, 47, 0.95)';
+                }
+            });
+            
+            // ANIMAÇÕES DE ENTRADA
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // LIGHTBOX
+            lightbox.option({
+                'resizeDuration': 300,
+                'wrapAround': true,
+                'albumLabel': "Imagem %1 de %2",
+                'fadeDuration': 400
+            });
+            
+            // ATUALIZAR ANO NO RODAPÉ
+            const currentYear = new Date().getFullYear();
+            const yearElement = document.querySelector('.footer-bottom p');
+            if (yearElement) {
+                yearElement.innerHTML = yearElement.innerHTML.replace('2026', currentYear);
+            }
+            
+            // EFEITO ESPECIAL PARA CONTADOR
+            const countdownItems = document.querySelectorAll('.countdown-item');
+            countdownItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.2}s`;
+                
+                setInterval(() => {
+                    const number = item.querySelector('.countdown-number');
+                    number.style.textShadow = number.style.textShadow === '0 0 20px rgba(255, 215, 0, 0.8)' 
+                        ? '0 5px 15px rgba(0, 0, 0, 0.5)' 
+                        : '0 0 20px rgba(255, 215, 0, 0.8)';
+                }, 3000 + (index * 500));
+            });
+        });
+    </script>
+</body>
+</html>
