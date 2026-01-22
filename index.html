@@ -48,7 +48,7 @@
         }
 
         section {
-            padding: 100px 0;
+            padding: 50px 0;
         }
 
         /* ===== PARTÍCULAS ===== */
@@ -68,7 +68,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 20px 0;
+            padding: 10px 0;
             background: rgba(26, 37, 47, 0.95);
             backdrop-filter: blur(15px);
             z-index: 1000;
@@ -155,7 +155,42 @@
             cursor: pointer;
         }
 
-        /* ===== HERO BANNER ===== */
+        /* ===== BANNER INICIAL 1920x1080 (16:9) ===== */
+        .top-banner-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 1000px;
+            overflow: hidden;
+            margin-top: 15px; /* Compensa a altura do header fixo */
+        }
+
+        .top-banner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
+        }
+
+        /* Overlay escuro para melhor legibilidade se necessário */
+        .top-banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(10, 10, 10, 0.2) 0%,
+                rgba(10, 10, 10, 0.4) 30%,
+                rgba(10, 10, 10, 0.6) 70%,
+                rgba(10, 10, 10, 0.8) 100%
+            );
+            z-index: 1;
+        }
+
+        /* ===== HERO BANNER (com logo e cronômetro) ===== */
         .hero-section {
             position: relative;
             min-height: 100vh;
@@ -163,7 +198,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            padding-top: 180px; /* AVENTURA... */
+            background: rgba(10, 10, 10, 0.95);
         }
 
         .hero-banner {
@@ -174,7 +209,7 @@
             height: 100%;
             object-fit: cover;
             z-index: -2;
-            opacity: 0.4;
+            opacity: 0.3;
         }
 
         .hero-overlay {
@@ -183,7 +218,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(10,10,10,0.8), rgba(26,37,47,0.9));
+            background: linear-gradient(to bottom, rgba(10,10,10,0.9), rgba(26,37,47,0.95));
             z-index: -1;
         }
 
@@ -421,21 +456,24 @@
             color: white;
         }
 
-        /* ===== GALERIA DE VÍDEOS ===== */
+        /* ===== GALERIA DE VÍDEOS - ATUALIZADA ===== */
         .video-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            width: 100%;
         }
 
         .video-item {
             position: relative;
             border-radius: 15px;
             overflow: hidden;
-            height: 280px;
+            height: 350px;
+            width: 100%;
             cursor: pointer;
             transition: all 0.4s ease;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: #000;
         }
 
         .video-item:hover {
@@ -443,17 +481,32 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
         }
 
-        .video-thumbnail {
+        .video-player {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border: none;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: opacity 0.4s ease;
+        }
+
+        .video-item:hover .video-overlay {
+            opacity: 0.8;
         }
 
         .video-play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             width: 80px;
             height: 80px;
             background: rgba(211, 84, 0, 0.9);
@@ -464,11 +517,12 @@
             font-size: 2rem;
             transition: all 0.4s ease;
             border: 3px solid white;
+            color: white;
         }
 
         .video-item:hover .video-play-btn {
             background: var(--primary-color);
-            transform: translate(-50%, -50%) scale(1.1);
+            transform: scale(1.1);
         }
 
         /* ===== MAPA ===== */
@@ -642,7 +696,7 @@
 
         .sponsor-card.standard .sponsor-name {
             font-size: 1.3rem;
-        }
+}
 
         .sponsor-card.normal .sponsor-name {
             font-size: 1.1rem;
@@ -913,6 +967,14 @@
                 font-size: 1.6rem;
             }
             
+            .video-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-item {
+                height: 300px;
+            }
+            
             .trail-bike {
                 width: 200px;
                 height: 140px;
@@ -954,6 +1016,14 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
+            
+            .video-item {
+                height: 250px;
+            }
+            
+            .top-banner-section {
+                min-height: 500px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -987,6 +1057,43 @@
             .hero-logo {
                 max-width: 250px;
             }
+            
+            .video-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-item {
+                height: 200px;
+            }
+            
+            .top-banner-section {
+                min-height: 400px;
+                margin-top: 90px; /* Header menor em mobile */
+            }
+            
+            .countdown-item {
+                min-width: 120px;
+                padding: 20px 10px;
+            }
+            
+            .countdown-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Para telas muito altas (mais de 16:9) */
+        @media (min-aspect-ratio: 16/9) {
+            .top-banner-img {
+                object-fit: contain;
+                background-color: #000; /* Fundo preto para as laterais se a tela for muito larga */
+            }
+        }
+
+        /* Para telas muito largas */
+        @media (min-width: 1920px) {
+            .top-banner-section {
+                height: 90vh;
+            }
         }
     </style>
 </head>
@@ -1017,7 +1124,13 @@
         </div>
     </header>
     
-    <!-- BANNER PRINCIPAL -->
+    <!-- NOVO BANNER INICIAL 1920x1080 -->
+    <section class="top-banner-section" id="top-banner">
+        <img src="assets/images/banner-inicio.png" alt="Banner Inicial 2º Trilhão Tianguá Off Road" class="top-banner-img">
+        <div class="top-banner-overlay"></div>
+    </section>
+    
+    <!-- BANNER PRINCIPAL COM LOGO E CRONÔMETRO -->
     <section class="hero-section" id="home">
         <img src="assets/images/banner.png" alt="Banner 2º Trilhão Tianguá" class="hero-banner">
         <div class="hero-overlay"></div>
@@ -1094,18 +1207,29 @@
                     </div>
                 </div>
                 
+                <!-- GALERIA DE VÍDEOS ATUALIZADA -->
                 <div class="video-gallery">
-                    <div class="video-item" data-lightbox="video-gallery">
-                        <video src="assets/images/videos/video-1.mp4" alt="Vídeo da Trilha" class="video-thumbnail"></video>
-                        <div class="video-play-btn">
-                            <i class="fas fa-play"></i>
+                    <div class="video-item">
+                        <video class="video-player" autoplay muted loop playsinline>
+                            <source src="assets/images/videos/video-1.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos HTML5.
+                        </video>
+                        <div class="video-overlay">
+                            <div class="video-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="video-item" data-lightbox="video-gallery">
-                        <video src="assets/images/videos/video-2.mp4" alt="Momentos Épicos" class="video-thumbnail"></video>
-                        <div class="video-play-btn">
-                            <i class="fas fa-play"></i>
+                    <div class="video-item">
+                        <video class="video-player" autoplay muted loop playsinline>
+                            <source src="assets/images/videos/video-2.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos HTML5.
+                        </video>
+                        <div class="video-overlay">
+                            <div class="video-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1594,6 +1718,24 @@
                         ? '0 5px 15px rgba(0, 0, 0, 0.5)' 
                         : '0 0 20px rgba(255, 215, 0, 0.8)';
                 }, 3000 + (index * 500));
+            });
+            
+            // CONTROLE DE VÍDEOS
+            const videoPlayers = document.querySelectorAll('.video-player');
+            videoPlayers.forEach(video => {
+                // Garantir que os vídeos rodem em loop
+                video.loop = true;
+                video.muted = true;
+                video.playsInline = true;
+                
+                // Adicionar controle de clique para pausar/play
+                video.parentElement.addEventListener('click', function() {
+                    if (video.paused) {
+                        video.play();
+                    } else {
+                        video.pause();
+                    }
+                });
             });
         });
     </script>
