@@ -48,7 +48,7 @@
         }
 
         section {
-            padding: 50px 0;
+            padding: 100px 0;
         }
 
         /* ===== PARTÍCULAS ===== */
@@ -68,7 +68,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 5px 0;
+            padding: 20px 0;
             background: rgba(26, 37, 47, 0.95);
             backdrop-filter: blur(15px);
             z-index: 1000;
@@ -155,22 +155,33 @@
             cursor: pointer;
         }
 
-        /* ===== BANNER INICIAL 1920x1080 (16:9) ===== */
+        /* ===== BANNER INICIAL RESPONSIVO ===== */
+        /* ESCOPO GERAL PARA O BANNER */
         .top-banner-section {
             position: relative;
             width: 100%;
-            height: 100vh;
-            min-height: 1000px;
             overflow: hidden;
-            margin-top: 15px; /* Compensa a altura do header fixo */
+            margin-top: 110px; /* Compensa a altura do header fixo */
         }
 
-        .top-banner-img {
+        /* BANNER PARA DESKTOP (1920x1080 - 16:9) */
+        .desktop-banner {
+            display: block;
             width: 100%;
-            height: 100%;
+            height: 100vh;
+            min-height: 700px;
             object-fit: cover;
             object-position: center center;
-            display: block;
+        }
+
+        /* BANNER PARA MOBILE (proporção mais vertical, ex: 9:16) */
+        .mobile-banner {
+            display: none;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            object-fit: cover;
+            object-position: center center;
         }
 
         /* Overlay escuro para melhor legibilidade se necessário */
@@ -488,9 +499,36 @@
             border: none;
         }
 
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: opacity 0.4s ease;
+        }
 
         .video-item:hover .video-overlay {
             opacity: 0.8;
+        }
+
+        .video-play-btn {
+            width: 80px;
+            height: 80px;
+            background: rgba(211, 84, 0, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all 0.4s ease;
+            border: 3px solid white;
+            color: white;
         }
 
         .video-item:hover .video-play-btn {
@@ -669,7 +707,7 @@
 
         .sponsor-card.standard .sponsor-name {
             font-size: 1.3rem;
-}
+        }
 
         .sponsor-card.normal .sponsor-name {
             font-size: 1.1rem;
@@ -994,7 +1032,13 @@
                 height: 250px;
             }
             
-            .top-banner-section {
+            /* TROCA DO BANNER PARA MOBILE */
+            .desktop-banner {
+                display: none;
+            }
+            
+            .mobile-banner {
+                display: block;
                 min-height: 500px;
             }
         }
@@ -1039,8 +1083,11 @@
                 height: 200px;
             }
             
-            .top-banner-section {
+            .mobile-banner {
                 min-height: 400px;
+            }
+            
+            .top-banner-section {
                 margin-top: 90px; /* Header menor em mobile */
             }
             
@@ -1056,7 +1103,7 @@
 
         /* Para telas muito altas (mais de 16:9) */
         @media (min-aspect-ratio: 16/9) {
-            .top-banner-img {
+            .desktop-banner, .mobile-banner {
                 object-fit: contain;
                 background-color: #000; /* Fundo preto para as laterais se a tela for muito larga */
             }
@@ -1097,9 +1144,14 @@
         </div>
     </header>
     
-    <!-- NOVO BANNER INICIAL 1920x1080 -->
+    <!-- NOVO BANNER INICIAL RESPONSIVO -->
     <section class="top-banner-section" id="top-banner">
-        <img src="assets/images/banner-inicio.png" alt="Banner Inicial 2º Trilhão Tianguá Off Road" class="top-banner-img">
+        <!-- BANNER PARA DESKTOP (1920x1080) -->
+        <img src="assets/images/banner-inicio-desktop.png" alt="Banner Inicial Desktop 2º Trilhão Tianguá Off Road" class="desktop-banner">
+        
+        <!-- BANNER PARA MOBILE (ex: 1080x1920 ou outra proporção vertical) -->
+        <img src="assets/images/banner-inicio-mobile.png" alt="Banner Inicial Mobile 2º Trilhão Tianguá Off Road" class="mobile-banner">
+        
         <div class="top-banner-overlay"></div>
     </section>
     
@@ -1710,6 +1762,16 @@
                     }
                 });
             });
+            
+            // DETECÇÃO DE DISPOSITIVO PARA LOG
+            function detectDevice() {
+                const isMobile = window.innerWidth <= 768;
+                console.log(`Dispositivo: ${isMobile ? 'Mobile' : 'Desktop'}`);
+                console.log(`Banner exibido: ${isMobile ? 'Mobile' : 'Desktop'}`);
+            }
+            
+            detectDevice();
+            window.addEventListener('resize', detectDevice);
         });
     </script>
 </body>
