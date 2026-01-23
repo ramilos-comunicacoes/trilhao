@@ -156,36 +156,46 @@
         }
 
         /* ===== BANNER INICIAL RESPONSIVO ===== */
-        /* ESCOPO GERAL PARA O BANNER */
-        .top-banner-section {
+        /* Apenas para DESKTOP (> 768px) */
+        .desktop-banner-container {
             position: relative;
-            width: 100%;
-            overflow: hidden;
-            margin-top: 110px; /* Compensa a altura do header fixo */
-        }
-
-        /* BANNER PARA DESKTOP (1920x1080 - 16:9) */
-        .desktop-banner {
-            display: block;
             width: 100%;
             height: 100vh;
             min-height: 700px;
-            object-fit: cover;
-            object-position: center center;
+            overflow: hidden;
+            margin-top: 110px;
+            display: block; /* Visível por padrão no desktop */
         }
 
-        /* BANNER PARA MOBILE (proporção mais vertical, ex: 9:16) */
-        .mobile-banner {
-            display: flex;
+        .desktop-banner {
             width: 100%;
-            height: 80vh;
-            min-height: 600px;
+            height: 100%;
             object-fit: cover;
             object-position: center center;
+            display: block;
+        }
+
+        /* Apenas para MOBILE (≤ 768px) */
+        .mobile-banner-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+            margin-top: 110px;
+            display: none; /* Oculto por padrão no desktop */
+        }
+
+        .mobile-banner {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
         }
 
         /* Overlay escuro para melhor legibilidade se necessário */
-        .top-banner-overlay {
+        .banner-overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -997,6 +1007,7 @@
             }
         }
 
+        /* TROCA DO BANNER PARA MOBILE (768px ou menos) */
         @media (max-width: 768px) {
             section {
                 padding: 80px 0;
@@ -1032,13 +1043,13 @@
                 height: 250px;
             }
             
-            /* TROCA DO BANNER PARA MOBILE */
-            .desktop-banner {
-                display: none;
+            /* TROCA EFETIVA DOS BANNERS */
+            .desktop-banner-container {
+                display: none !important; /* Oculta totalmente o banner desktop */
             }
             
-            .mobile-banner {
-                display: block;
+            .mobile-banner-container {
+                display: block !important; /* Mostra o banner mobile */
                 min-height: 500px;
             }
         }
@@ -1083,11 +1094,8 @@
                 height: 200px;
             }
             
-            .mobile-banner {
+            .mobile-banner-container {
                 min-height: 400px;
-            }
-            
-            .top-banner-section {
                 margin-top: 90px; /* Header menor em mobile */
             }
             
@@ -1111,7 +1119,7 @@
 
         /* Para telas muito largas */
         @media (min-width: 1920px) {
-            .top-banner-section {
+            .desktop-banner-container, .mobile-banner-container {
                 height: 90vh;
             }
         }
@@ -1144,16 +1152,17 @@
         </div>
     </header>
     
-    <!-- NOVO BANNER INICIAL RESPONSIVO -->
-    <section class="top-banner-section" id="top-banner">
-        <!-- BANNER PARA DESKTOP (1920x1080) -->
+    <!-- BANNER DESKTOP (visível apenas em desktop) -->
+    <div class="desktop-banner-container" id="top-banner-desktop">
         <img src="assets/images/banner-inicio-desktop.png" alt="Banner Inicial Desktop 2º Trilhão Tianguá Off Road" class="desktop-banner">
-        
-        <!-- BANNER PARA MOBILE (ex: 1080x1920 ou outra proporção vertical) -->
+        <div class="banner-overlay"></div>
+    </div>
+    
+    <!-- BANNER MOBILE (visível apenas em mobile) -->
+    <div class="mobile-banner-container" id="top-banner-mobile">
         <img src="assets/images/banner-inicio-mobile.png" alt="Banner Inicial Mobile 2º Trilhão Tianguá Off Road" class="mobile-banner">
-        
-        <div class="top-banner-overlay"></div>
-    </section>
+        <div class="banner-overlay"></div>
+    </div>
     
     <!-- BANNER PRINCIPAL COM LOGO E CRONÔMETRO -->
     <section class="hero-section" id="home">
@@ -1763,15 +1772,29 @@
                 });
             });
             
-            // DETECÇÃO DE DISPOSITIVO PARA LOG
-            function detectDevice() {
+            // VERIFICAÇÃO DE DISPOSITIVO E BANNER CORRETO
+            function checkDeviceAndBanner() {
                 const isMobile = window.innerWidth <= 768;
+                const desktopBanner = document.getElementById('top-banner-desktop');
+                const mobileBanner = document.getElementById('top-banner-mobile');
+                
                 console.log(`Dispositivo: ${isMobile ? 'Mobile' : 'Desktop'}`);
-                console.log(`Banner exibido: ${isMobile ? 'Mobile' : 'Desktop'}`);
+                console.log(`Desktop Banner display: ${desktopBanner.style.display}`);
+                console.log(`Mobile Banner display: ${mobileBanner.style.display}`);
+                
+                // Forçar a exibição correta se necessário
+                if (isMobile) {
+                    desktopBanner.style.display = 'none';
+                    mobileBanner.style.display = 'block';
+                } else {
+                    desktopBanner.style.display = 'block';
+                    mobileBanner.style.display = 'none';
+                }
             }
             
-            detectDevice();
-            window.addEventListener('resize', detectDevice);
+            // Verificar ao carregar e ao redimensionar
+            checkDeviceAndBanner();
+            window.addEventListener('resize', checkDeviceAndBanner);
         });
     </script>
 </body>
