@@ -93,20 +93,9 @@
             width: auto;
         }
 
-        .logo-text {
-            font-size:24px;
-            font-weight: 900;
-            text-transform: uppercase;
-            background: linear-gradient(to right, #f39c12, #e74c3c, #d35400);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: 1.5px;
-        }
-
         .nav-menu {
             display: flex;
-            gap: 40px;
+            gap: 15px;
         }
 
         .nav-item {
@@ -597,7 +586,7 @@
 
         /* STANDARD - MENORES (1K) */
         .sponsor-card.standard {
-            height: 220px;
+            height: 250px;
             border: 3px solid var(--bronze-color);
             box-shadow: 0 0 15px rgba(205, 127, 50, 0.3);
             padding: 25px 20px;
@@ -631,7 +620,7 @@
         }
 
         .sponsor-card.standard .sponsor-logo {
-            max-height: 130px;
+            max-height: 150px;
         }
 
         .sponsor-card.normal .sponsor-logo {
@@ -679,6 +668,145 @@
             color: var(--accent-color);
             background: rgba(211, 84, 0, 0.2);
             transform: translateY(-3px);
+        }
+
+        /* ===== NOVA SEÇÃO: CRONOGRAMA ===== */
+        .schedule-section {
+            background: rgba(10, 10, 10, 0.9);
+        }
+
+        .schedule-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .schedule-day {
+            background: rgba(44, 62, 80, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 3px solid var(--primary-color);
+            transition: all 0.4s ease;
+        }
+
+        .schedule-day:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-color);
+        }
+
+        .day-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .day-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .day-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+        }
+
+        .timeline {
+            position: relative;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 35px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 15px;
+            height: 15px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid white;
+            z-index: 2;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 25px;
+            width: 3px;
+            height: calc(100% + 10px);
+            background: var(--primary-color);
+            z-index: 1;
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .timeline-time {
+            min-width: 100px;
+            background: rgba(211, 84, 0, 0.2);
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-right: 25px;
+            text-align: center;
+            border: 2px solid var(--primary-color);
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .timeline-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .timeline-icon {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.9rem;
         }
 
         /* ===== BENEFÍCIOS ===== */
@@ -879,6 +1007,10 @@
             .section-title {
                 font-size: 3rem;
             }
+            
+            .schedule-container {
+                grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            }
         }
 
         @media (max-width: 992px) {
@@ -943,6 +1075,11 @@
             .about-features {
                 grid-template-columns: 1fr;
             }
+            
+            .schedule-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
         }
 
         /* TROCA DO BANNER PARA MOBILE (768px ou menos) */
@@ -989,6 +1126,25 @@
             .mobile-banner-container {
                 display: block !important; /* Mostra o banner mobile */
                 min-height: 500px;
+            }
+            
+            .schedule-day {
+                padding: 30px;
+            }
+            
+            .day-title {
+                font-size: 2.2rem;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                padding-left: 25px;
+            }
+            
+            .timeline-time {
+                margin-right: 0;
+                margin-bottom: 15px;
+                align-self: flex-start;
             }
         }
 
@@ -1045,6 +1201,26 @@
             .countdown-number {
                 font-size: 2.5rem;
             }
+            
+            .schedule-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .schedule-day {
+                padding: 25px 20px;
+            }
+            
+            .day-title {
+                font-size: 2rem;
+            }
+            
+            .timeline-title {
+                font-size: 1.3rem;
+            }
+            
+            .timeline-description {
+                font-size: 1rem;
+            }
         }
 
         /* Para telas muito altas (mais de 16:9) */
@@ -1082,6 +1258,7 @@
                 <li class="nav-item"><a href="#about" class="nav-link">Sobre</a></li>
                 <li class="nav-item"><a href="#trail" class="nav-link">Trilha</a></li>
                 <li class="nav-item"><a href="#sponsors" class="nav-link">Patrocinadores</a></li>
+                <li class="nav-item"><a href="#schedule" class="nav-link">Cronograma</a></li>
                 <li class="nav-item"><a href="#benefits" class="nav-link">Benefícios</a></li>
                 <li class="nav-item"><a href="#gallery" class="nav-link">Galeria</a></li>
                 <li class="nav-item"><a href="#registration" class="nav-link">Inscrição</a></li>
@@ -1371,6 +1548,175 @@
                         <img src="assets/images/sponsors/normal-6.png" alt="Apoiador" class="sponsor-logo">
                         <div class="sponsor-name">Apoiador 6</div>
                         <a href="https://apoiador6.com" class="sponsor-link" target="_blank">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- NOVA SEÇÃO: CRONOGRAMA -->
+    <section class="schedule-section" id="schedule">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Cronograma Oficial</h2>
+                <p class="section-subtitle">Confira a programação completa do evento e organize sua participação.</p>
+            </div>
+            
+            <div class="schedule-container fade-in">
+                <!-- SÁBADO -->
+                <div class="schedule-day">
+                    <div class="day-header">
+                        <h3 class="day-title">Sábado - MIX</h3>
+                        <p class="day-subtitle">Dia de preparação e animação</p>
+                    </div>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">14:00</div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">
+                                    <i class="fas fa-flag-checkered timeline-icon"></i>
+                                    Início das atividades
+                                </h4>
+                                <p class="timeline-description">
+                                    ✔️ Entrega de kits<br>
+                                    ✔️ Inscrições no local
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">18:00</div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">
+                                    <i class="fas fa-music timeline-icon"></i>
+                                    Forró ao vivo
+                                </h4>
+                                <p class="timeline-description">
+                                    Com Kaliane Meneses 🎶💃🕺
+                                </p>
+                                <span class="highlight">Show especial</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">20:00</div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">
+                                    <i class="fas fa-gift timeline-icon"></i>
+                                    Sorteios
+                                </h4>
+                                <p class="timeline-description">
+                                    🏍️ Sorteio de uma CRF 250<br>
+                                    🎁 Sorteio de brindes
+                                </p>
+                                <span class="highlight">Premiação especial</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">21:00</div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">
+                                    <i class="fas fa-clock timeline-icon"></i>
+                                    Encerramento no MIX
+                                </h4>
+                                <p class="timeline-description">
+                                    Encerramento das atividades no local MIX
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">22:00</div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">
+                                    <i class="fas fa-star timeline-icon"></i>
+                                    Forró no Luar do Sertão
+                                </h4>
+                                <p class="timeline-description">
+                                    Continuação da festa no Restaurante Luar do Sertão 🌙🎶
+                                </p>
+                                <span class="highlight">Festa até altas horas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- DOMINGO -->
+                <div class="schedule-day">
+                    <div class="day-header">
+                        <h3 class="day-title">Domingo - Dia da Trilha</h3>
+                        <p class="day-subtitle">Dia principal da aventura off-road</p>
+                    </div>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">07:00</div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">
+                                    <i class="fas fa-coffee timeline-icon"></i>
+                                    Concentração
+                                </h4>
+                                <p class="timeline-description">
+                                    ☕ Café da manhã<br>
+                                    🍉 Mesa de frutas
+                                </p>
+                                <span class="highlight">Preparação final</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">08:30</div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">
+                                    <i class="fas fa-flag timeline-icon"></i>
+                                    Largada oficial
+                                </h4>
+                                <p class="timeline-description">
+                                    ⏱️ Tolerância de atraso de até 30 minutos
+                                </p>
+                                <span class="highlight">Início da aventura!</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">11:30</div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">
+                                    <i class="fas fa-utensils timeline-icon"></i>
+                                    Almoço
+                                </h4>
+                                <p class="timeline-description">
+                                    📍 Balneário do Alex – Oiticicas 🍽️🌴
+                                </p>
+                                <span class="highlight">Refeição de apoio</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">17:00</div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">
+                                    <i class="fas fa-trophy timeline-icon"></i>
+                                    Término previsto
+                                </h4>
+                                <p class="timeline-description">
+                                    📍 Chegada no MIX<br>
+                                    Encerramento oficial do evento
+                                </p>
+                                <span class="highlight">Conclusão da trilha</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="day-footer" style="margin-top: 40px; padding-top: 20px; border-top: 2px dashed rgba(211, 84, 0, 0.5); text-align: center;">
+                        <p style="font-size: 1.2rem; color: var(--primary-color); font-weight: 700;">
+                            <i class="fas fa-fire"></i> Tianguá Off Road – emoção, adrenalina e muita diversão sobre rodas!
+                        </p>
+                        <p style="margin-top: 10px; font-size: 1.1rem;">
+                            Chama a turma e vem viver essa experiência! 🏍️💥
+                        </p>
                     </div>
                 </div>
             </div>
