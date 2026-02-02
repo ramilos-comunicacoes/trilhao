@@ -986,6 +986,68 @@
             transform: translateY(0);
         }
 
+        /* ===== BOTÃO WHATSAPP FLUTUANTE ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 70px;
+            height: 70px;
+            background-color: #25d366;
+            border-radius: 50%;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            transition: all 0.4s ease;
+            animation: pulse-whatsapp 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7);
+            background-color: #1da851;
+        }
+
+        @keyframes pulse-whatsapp {
+            0% { box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5); }
+            50% { box-shadow: 0 5px 25px rgba(37, 211, 102, 0.8); }
+            100% { box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5); }
+        }
+
+        .whatsapp-float i {
+            color: white;
+            font-size: 36px;
+        }
+
+        /* Responsividade do botão WhatsApp */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .whatsapp-float i {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .whatsapp-float i {
+                font-size: 28px;
+            }
+        }
+
         /* ===== RESPONSIVIDADE ===== */
         @media (max-width: 1200px) {
             .hero-logo {
@@ -1380,11 +1442,11 @@
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
-                            <div class="feature-text">2 dias de aventura</div>
+                            <div class="feature-text">2 dias de evento</div>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon"><i class="fas fa-users"></i></div>
-                            <div class="feature-text">+500 participantes</div>
+                            <div class="feature-text">+800 participantes</div>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon"><i class="fas fa-trophy"></i></div>
@@ -1543,48 +1605,6 @@
                      <div class="sponsor-card standard">
                         <img src="assets/images/sponsors/standard-5.png" alt="Patrocinador Standard" class="sponsor-logo">
                         <a href="https://patrocinador5.com" class="sponsor-link" target="_blank">siga no Instagram <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- PATROCINADORES NORMAIS (PEQUENOS) -->
-            <div class="sponsors-category fade-in">
-                <h3 class="sponsor-category-title normal">Patrocinadores Ferro</h3>
-                <div class="sponsor-grid">
-                    <div class="sponsor-card normal">
-                        <img src="assets/images/sponsors/normal-1.png" alt="Apoiador" class="sponsor-logo">
-                        <div class="sponsor-name">Apoiador 1</div>
-                        <a href="https://apoiador1.com" class="sponsor-link" target="_blank">Siga no instagram <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                    
-                    <div class="sponsor-card normal">
-                        <img src="assets/images/sponsors/normal-2.png" alt="Apoiador" class="sponsor-logo">
-                        <div class="sponsor-name">Apoiador 2</div>
-                        <a href="https://apoiador2.com" class="sponsor-link" target="_blank">Siga no Instagram <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                    
-                    <div class="sponsor-card normal">
-                        <img src="assets/images/sponsors/normal-3.png" alt="Apoiador" class="sponsor-logo">
-                        <div class="sponsor-name">Apoiador 3</div>
-                        <a href="https://apoiador3.com" class="sponsor-link" target="_blank">Siga no Instagram <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                    
-                    <div class="sponsor-card normal">
-                        <img src="assets/images/sponsors/normal-4.png" alt="Apoiador" class="sponsor-logo">
-                        <div class="sponsor-name">Apoiador 4</div>
-                        <a href="https://apoiador4.com" class="sponsor-link" target="_blank">Siga no Instagram <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                    
-                    <div class="sponsor-card normal">
-                        <img src="assets/images/sponsors/normal-5.png" alt="Apoiador" class="sponsor-logo">
-                        <div class="sponsor-name">Apoiador 5</div>
-                        <a href="https://apoiador5.com" class="sponsor-link" target="_blank">Siga no Instagram <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                    
-                    <div class="sponsor-card normal">
-                        <img src="assets/images/sponsors/normal-6.png" alt="Apoiador" class="sponsor-logo">
-                        <div class="sponsor-name">Apoiador 6</div>
-                        <a href="https://apoiador6.com" class="sponsor-link" target="_blank">Siga no Instagram <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
             </div>
@@ -1920,6 +1940,11 @@
             </div>
         </div>
     </footer>
+    
+    <!-- BOTÃO WHATSAPP FLUTUANTE -->
+    <a href="https://wa.me/558892507312" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
     
     <!-- SCRIPTS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
