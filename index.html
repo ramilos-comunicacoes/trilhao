@@ -508,143 +508,202 @@
             border: none;
         }
 
-        /* ===== PATROCINADORES MENORES ===== */
+        /* ===== PATROCINADORES - NOVA ESTRUTURA COM HIERARQUIA DE TAMANHOS ===== */
         .sponsors-section {
             background: rgba(77, 55, 43, 0.8);
         }
 
+        /* SEÇÃO DIVIDIDA POR CATEGORIAS */
         .sponsors-category {
-            margin-bottom: 80px;
+            margin-bottom: 100px;
+            padding: 40px 30px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
         }
 
         .sponsors-category:last-child {
-            margin-bottom: 0;
+            margin-bottom: 50px;
         }
 
+        /* CORES E FUNDOS DIFERENCIADOS PARA CADA CATEGORIA */
+        .sponsors-category.gold {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(139, 69, 19, 0.2));
+            border: 3px solid var(--gold-color);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .sponsors-category.silver {
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.15), rgba(128, 128, 128, 0.2));
+            border: 3px solid var(--silver-color);
+            box-shadow: 0 10px 40px rgba(192, 192, 192, 0.3);
+            margin-top: 60px;
+        }
+
+        .sponsors-category.bronze {
+            background: linear-gradient(135deg, rgba(205, 127, 50, 0.15), rgba(139, 69, 19, 0.2));
+            border: 3px solid var(--bronze-color);
+            box-shadow: 0 10px 40px rgba(205, 127, 50, 0.3);
+            margin-top: 60px;
+        }
+
+        /* TÍTULOS DAS CATEGORIAS */
+        .sponsor-category-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .sponsor-category-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            border-radius: 3px;
+        }
+
+        .gold .sponsor-category-title {
+            color: var(--gold-color);
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        .gold .sponsor-category-title::after {
+            background: linear-gradient(135deg, #FFD700, #DAA520, #B8860B);
+        }
+
+        .silver .sponsor-category-title {
+            color: var(--silver-color);
+            text-shadow: 0 0 15px rgba(192, 192, 192, 0.5);
+        }
+
+        .silver .sponsor-category-title::after {
+            background: linear-gradient(135deg, #C0C0C0, #A9A9A9, #808080);
+        }
+
+        .bronze .sponsor-category-title {
+            color: var(--bronze-color);
+            text-shadow: 0 0 15px rgba(205, 127, 50, 0.5);
+        }
+
+        .bronze .sponsor-category-title::after {
+            background: linear-gradient(135deg, #CD7F32, #8B4513, #A0522D);
+        }
+
+        /* GRID DE PATROCINADORES */
         .sponsor-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            gap: 35px;
         }
 
+        /* CARD DE PATROCINADOR - TAMANHO BASE (OURO) */
         .sponsor-card {
-            background: rgba(44, 62, 80, 0.9);
-            border-radius: 12px;
-            padding: 40px 30px;
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            background: rgba(44, 62, 80, 0.95);
+            border-radius: 15px;
+            transition: all 0.5s ease;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             position: relative;
             overflow: hidden;
-        }
-
-        .sponsor-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .sponsor-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(135deg, #D35400, #8B4513, #eeff00);
-        }
-
-        /* MASTERS - MAIORES */
-        .sponsor-card.master {
-            height: 280px;
-            border: 2px solid var(--gold-color);
-            box-shadow: 0 0 25px rgb(184, 158, 14);
-        }
-
-        /* VIPS - MÉDIOS */
-        .sponsor-card.vip {
-            height: 230px;
-            border: 2px solid var(--silver-color);
-            box-shadow: 0 0 15px rgb(88, 88, 88);
-            padding: 25px 20px;
-        }
-
-        /* STANDARD - MENORES */
-        .sponsor-card.standard {
-            height: 180px;
-            border: 2px solid var(--bronze-color);
-            box-shadow: 0 0 12px rgba(205, 128, 50, 0.123);
-            padding: 15px 10px;
-        }
-
-        /* LOGOS MENORES */
-        .sponsor-logo {
-            max-width: 100%;
-            margin-bottom: 20px;
-            transition: all 0.4s ease;
-            object-fit: contain;
-        }
-
-        .sponsor-card:hover .sponsor-logo {
-            transform: scale(1.03);
-        }
-
-        .sponsor-card.master .sponsor-logo {
-            max-height: 2000px;
-        }
-
-        .sponsor-card.vip .sponsor-logo {
-            max-height: 150px;
-        }
-
-        .sponsor-card.standard .sponsor-logo {
-            max-height: 90px;
-        }
-
-        /* NOMES MENORES */
-        .sponsor-name {
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--light-color);
+            border: 2px solid transparent;
             text-align: center;
         }
 
-        .sponsor-card.master .sponsor-name {
-            font-size: 1.5rem;
+        .sponsor-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
         }
 
-        .sponsor-card.vip .sponsor-name {
-            font-size: 1.3rem;
+        /* HIERARQUIA DE TAMANHOS - OURO 100% */
+        .gold .sponsor-card {
+            min-height: 280px;
+            padding: 40px 30px;
+            border-color: var(--gold-color);
         }
 
-        .sponsor-card.standard .sponsor-name {
-            font-size: 1.2rem;
+        /* PRATA 75% (diminuiu 25%) */
+        .silver .sponsor-card {
+            min-height: 210px; /* 75% de 280px */
+            padding: 30px 22px; /* 75% do padding do ouro */
+            border-color: var(--silver-color);
         }
 
-        .sponsor-card.normal .sponsor-name {
-            font-size: 1rem;
+        /* BRONZE 50% (diminuiu mais 25% em relação à prata) */
+        .bronze .sponsor-card {
+            min-height: 140px; /* 50% de 280px */
+            padding: 20px 15px; /* 50% do padding do ouro */
+            border-color: var(--bronze-color);
         }
 
+        /* LOGOS - TAMANHO PROPORCIONAL À HIERARQUIA */
+        .sponsor-logo {
+            max-width: 100%;
+            transition: all 0.5s ease;
+            object-fit: contain;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+            display: block;
+        }
+
+        .gold .sponsor-logo {
+            max-height: 140px;
+            margin-bottom: 25px;
+        }
+
+        .silver .sponsor-logo {
+            max-height: 105px; /* 75% de 140px */
+            margin-bottom: 18px; /* 75% de 25px */
+        }
+
+        .bronze .sponsor-logo {
+            max-height: 70px; /* 50% de 140px */
+            margin-bottom: 12px; /* 50% de 25px */
+        }
+
+        .sponsor-card:hover .sponsor-logo {
+            transform: scale(1.1);
+        }
+
+        /* LINKS - TAMANHO PROPORCIONAL */
         .sponsor-link {
             color: var(--primary-color);
             text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            font-weight: 600;
-            padding: 6px 12px;
-            border-radius: 5px;
-            background: rgba(211, 84, 0, 0.1);
+            gap: 10px;
+            font-weight: 700;
+            border-radius: 8px;
+            background: rgba(211, 84, 0, 0.15);
+            border: 1px solid rgba(211, 84, 0, 0.3);
+        }
+
+        .gold .sponsor-link {
+            font-size: 1rem;
+            padding: 10px 20px;
+        }
+
+        .silver .sponsor-link {
+            font-size: 0.85rem; /* 85% do original */
+            padding: 8px 16px; /* 80% do padding do ouro */
+        }
+
+        .bronze .sponsor-link {
+            font-size: 0.75rem; /* 75% do original */
+            padding: 6px 12px; /* 60% do padding do ouro */
         }
 
         .sponsor-link:hover {
-            color: var(--accent-color);
-            background: rgba(211, 84, 0, 0.2);
-            transform: translateY(-2px);
+            color: white;
+            background: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(211, 84, 0, 0.4);
         }
 
         /* ===== CRONOGRAMA MENOR ===== */
@@ -1050,6 +1109,10 @@
             .schedule-container {
                 grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             }
+            
+            .sponsor-category-title {
+                font-size: 2.2rem;
+            }
         }
 
         @media (max-width: 992px) {
@@ -1119,6 +1182,15 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
+            
+            .sponsors-category {
+                padding: 30px 20px;
+                margin-bottom: 80px;
+            }
+            
+            .sponsor-category-title {
+                font-size: 2rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1144,7 +1216,7 @@
             
             .sponsor-grid {
                 grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-                gap: 20px;
+                gap: 25px;
             }
             
             .benefits-grid {
@@ -1194,6 +1266,47 @@
                 height: 45vh;
                 min-height: 350px;
             }
+            
+            .sponsors-category {
+                margin-top: 40px !important;
+                margin-bottom: 60px;
+            }
+            
+            .sponsor-category-title {
+                font-size: 1.8rem;
+                margin-bottom: 35px;
+            }
+            
+            /* Ajustes de tamanho para mobile */
+            .gold .sponsor-card {
+                min-height: 220px;
+                padding: 30px 20px;
+            }
+            
+            .silver .sponsor-card {
+                min-height: 165px; /* 75% de 220px */
+                padding: 22px 16px;
+            }
+            
+            .bronze .sponsor-card {
+                min-height: 110px; /* 50% de 220px */
+                padding: 15px 10px;
+            }
+            
+            .gold .sponsor-logo {
+                max-height: 120px;
+                margin-bottom: 20px;
+            }
+            
+            .silver .sponsor-logo {
+                max-height: 90px; /* 75% de 120px */
+                margin-bottom: 15px;
+            }
+            
+            .bronze .sponsor-logo {
+                max-height: 60px; /* 50% de 120px */
+                margin-bottom: 10px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1207,10 +1320,6 @@
             
             .section-title {
                 font-size: 2rem;
-            }
-            
-            .sponsor-card {
-                padding: 20px 15px;
             }
             
             .footer-content {
@@ -1269,6 +1378,67 @@
             .gallery-item {
                 height: 180px;
             }
+            
+            .sponsors-category {
+                padding: 25px 15px;
+                margin-bottom: 50px;
+            }
+            
+            .sponsor-category-title {
+                font-size: 1.6rem;
+                margin-bottom: 30px;
+            }
+            
+            .sponsor-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            /* Ajustes de tamanho para mobile pequeno */
+            .gold .sponsor-card {
+                min-height: 180px;
+                padding: 25px 15px;
+            }
+            
+            .silver .sponsor-card {
+                min-height: 135px; /* 75% de 180px */
+                padding: 18px 12px;
+            }
+            
+            .bronze .sponsor-card {
+                min-height: 90px; /* 50% de 180px */
+                padding: 12px 8px;
+            }
+            
+            .gold .sponsor-logo {
+                max-height: 100px;
+                margin-bottom: 15px;
+            }
+            
+            .silver .sponsor-logo {
+                max-height: 75px; /* 75% de 100px */
+                margin-bottom: 12px;
+            }
+            
+            .bronze .sponsor-logo {
+                max-height: 50px; /* 50% de 100px */
+                margin-bottom: 8px;
+            }
+            
+            .gold .sponsor-link {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+            
+            .silver .sponsor-link {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+            
+            .bronze .sponsor-link {
+                font-size: 0.7rem;
+                padding: 5px 10px;
+            }
         }
 
         @media (max-width: 400px) {
@@ -1309,6 +1479,11 @@
             .map-container {
                 height: 350px;
             }
+            
+            .sponsor-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
         }
 
         /* Para telas muito altas (mais de 16:9) */
@@ -1323,6 +1498,14 @@
         @media (min-width: 1920px) {
             .desktop-banner-container, .mobile-banner-container {
                 height: 70vh;
+            }
+            
+            .sponsors-category {
+                margin-bottom: 120px;
+            }
+            
+            .sponsor-grid {
+                grid-template-columns: repeat(4, 1fr);
             }
         }
     </style>
@@ -1489,7 +1672,7 @@
         </div>
     </section>
     
-    <!-- PATROCINADORES COM HIERARQUIA VISUAL -->
+    <!-- PATROCINADORES COM SEÇÕES DIVIDIDAS E HIERARQUIA DE TAMANHOS -->
     <section class="sponsors-section" id="sponsors">
         <div class="container">
             <div class="section-header">
@@ -1497,117 +1680,174 @@
                 <p class="section-subtitle">Conheça as empresas que tornam possível essa grande aventura off-road.</p>
             </div>
             
-            <!-- PATROCINADORES MASTERS (MAIORES) -->
-            <div class="sponsors-category fade-in">
+            <!-- PATROCINADORES OURO (TAMANHO BASE: 100%) -->
+            <div class="sponsors-category gold fade-in">
                 <h3 class="sponsor-category-title">Patrocinadores Ouro</h3>
                 <div class="sponsor-grid">
-                    <div class="sponsor-card master">
-                        <img src="assets/images/sponsors/master-1.png" alt="Patrocinador Master" class="sponsor-logo">
-                        <a href="https://www.instagram.com/aresmotos.ce/" class="sponsor-link" target="_blank">Siga no instagram <i class="fas fa-external-link-alt"></i></a>
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/master-1.png" alt="Patrocinador Ouro" class="sponsor-logo">
+                        <a href="https://www.instagram.com/aresmotos.ce/" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> Siga no Instagram
+                        </a>
                     </div>
                     
-                    <div class="sponsor-card master">
-                        <img src="assets/images/sponsors/master-2.png" alt="Patrocinador Master" class="sponsor-logo">
-                        <div>
-                            
-                        </div>
-                        <a href="https://www.instagram.com/prefeituradetiangua/" class="sponsor-link" target="_blank">Siga no Instagram<i class="fas fa-external-link-alt"></i></a>
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/master-2.png" alt="Patrocinador Ouro" class="sponsor-logo">
+                        <a href="https://www.instagram.com/prefeituradetiangua/" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> Siga no Instagram
+                        </a>
                     </div>
                     
-                    <div class="sponsor-card master">
-                        <img src="assets/images/sponsors/master-3.png" alt="Patrocinador Master" class="sponsor-logo">
-                        <div>
-
-                        </div>
-                        <a href="https://www.instagram.com/mix_tiangua_264/" class="sponsor-link" target="_blank">Siga no Instagram <i class="fas fa-external-link-alt"></i></a>
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/master-3.png" alt="Patrocinador Ouro" class="sponsor-logo">
+                        <a href="https://www.instagram.com/mix_tiangua_264/" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> Siga no Instagram
+                        </a>
                     </div>
 
-                    <div class="sponsor-card master">
-                        <img src="assets/images/sponsors/master-4.png" alt="Patrocinador Master" class="sponsor-logo">
-                        <div>
-
-                        </div>
-                        <a href="https://www.instagram.com/fortiboficial/" class="sponsor-link" target="_blank">Siga no Instagram <i class="fas fa-external-link-alt"></i></a>
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/master-4.png" alt="Patrocinador Ouro" class="sponsor-logo">
+                        <a href="https://www.instagram.com/fortiboficial/" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> Siga no Instagram
+                        </a>
                     </div>
 
-                    <div class="sponsor-card master">
-                        <img src="assets/images/sponsors/master-5.png" alt="Patrocinador Master" class="sponsor-logo">
-                        <div>
-                        </div>
-                        <a href="https://www.instagram.com/vmpowersports/" class="sponsor-link" target="_blank">Siga no Instagram <i class="fas fa-external-link-alt"></i></a>
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/master-5.png" alt="Patrocinador Ouro" class="sponsor-logo">
+                        <a href="https://www.instagram.com/vmpowersports/" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> Siga no Instagram
+                        </a>
                     </div>
 
-                     <div class="sponsor-card master">
-                        <img src="assets/images/sponsors/master-6.png" alt="Patrocinador Master" class="sponsor-logo">
-                        <div>
-                        </div>
-                        <a href="https://www.instagram.com/jclovismapurunga/" class="sponsor-link" target="_blank">Siga no Instagram <i class="fas fa-external-link-alt"></i></a>
+                     <div class="sponsor-card">
+                        <img src="assets/images/sponsors/master-6.png" alt="Patrocinador Ouro" class="sponsor-logo">
+                        <a href="https://www.instagram.com/jclovismapurunga/" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> Siga no Instagram
+                        </a>
                     </div>
                 </div>
             </div>
             
-            <!-- PATROCINADORES VIPS (MÉDIOS) -->
-            <div class="sponsors-category fade-in">
-                <h3 class="sponsor-category-title silver">Patrocinadores Prata</h3>
+            <!-- PATROCINADORES PRATA (TAMANHO: 75% DO OURO) -->
+            <div class="sponsors-category silver fade-in">
+                <h3 class="sponsor-category-title">Patrocinadores Prata</h3>
                 <div class="sponsor-grid">
-                    <div class="sponsor-card vip">
-                        <img src="assets/images/sponsors/vip-1.png" alt="Patrocinador VIP" class="sponsor-logo">
-                        <a href="https://www.instagram.com/heltinveiculos/" class="sponsor-link" target="_blank">Siga no Instagram <i class="fas fa-external-link-alt"></i></a>
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/vip-1.png" alt="Patrocinador Prata" class="sponsor-logo">
+                        <a href="https://www.instagram.com/heltinveiculos/" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> Siga no Instagram
+                        </a>
                     </div>
                     
-                    <div class="sponsor-card vip">
-                        <img src="assets/images/sponsors/vip-2.png" alt="Patrocinador VIP" class="sponsor-logo">
-                        <a href="https://www.instagram.com/manahagricola/" class="sponsor-link" target="_blank">Siga no Instagram <i class="fas fa-external-link-alt"></i></a>
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/vip-2.png" alt="Patrocinador Prata" class="sponsor-logo">
+                        <a href="https://www.instagram.com/manahagricola/" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> Siga no Instagram
+                        </a>
                     </div>
                     
-                    <div class="sponsor-card vip">
-                        <img src="assets/images/sponsors/vip-3.png" alt="Patrocinador VIP" class="sponsor-logo">
-                        <a href="https://www.instagram.com/escolaepaf/?hl=pt-br" class="sponsor-link" target="_blank">Siga no Instagram <i class="fas fa-external-link-alt"></i></a>
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/vip-3.png" alt="Patrocinador Prata" class="sponsor-logo">
+                        <a href="https://www.instagram.com/escolaepaf/?hl=pt-br" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> Siga no Instagram
+                        </a>
                     </div>
                     
-                    <div class="sponsor-card vip">
-                        <img src="assets/images/sponsors/vip-4.png" alt="Patrocinador VIP" class="sponsor-logo">
-                        <a href="https://www.instagram.com/verdfrutrttiangua/" class="sponsor-link" target="_blank">Siga no Instagram <i class="fas fa-external-link-alt"></i></a>
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/vip-4.png" alt="Patrocinador Prata" class="sponsor-logo">
+                        <a href="https://www.instagram.com/verdfrutrttiangua/" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> Siga no Instagram
+                        </a>
                     </div>
-                    <div class="sponsor-card vip">
-                        <img src="assets/images/sponsors/vip-5.png" alt="Patrocinador VIP" class="sponsor-logo">
-                        <a href="https://www.instagram.com/icasertiangua/" class="sponsor-link" target="_blank">Siga no Instagram <i class="fas fa-external-link-alt"></i></a>
+                    
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/vip-5.png" alt="Patrocinador Prata" class="sponsor-logo">
+                        <a href="https://www.instagram.com/icasertiangua/" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> Siga no Instagram
+                        </a>
                     </div>
-                    <div class="sponsor-card vip">
-                        <img src="assets/images/sponsors/vip-6.png" alt="Patrocinador VIP" class="sponsor-logo">
-                        <a href="https://www.instagram.com/odontomedis/" class="sponsor-link" target="_blank">Siga no Instagram <i class="fas fa-external-link-alt"></i></a>
+                    
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/vip-6.png" alt="Patrocinador Prata" class="sponsor-logo">
+                        <a href="https://www.instagram.com/odontomedis/" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> Siga no Instagram
+                        </a>
                     </div>
-                    <div class="sponsor-card vip">
-                        <img src="assets/images/sponsors/vip-7.png" alt="Patrocinador VIP" class="sponsor-logo">
-                        <a href="https://www.instagram.com/pousadasramilos/" class="sponsor-link" target="_blank">Siga no Instagram <i class="fas fa-external-link-alt"></i></a>
+                    
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/vip-7.png" alt="Patrocinador Prata" class="sponsor-logo">
+                        <a href="https://www.instagram.com/pousadasramilos/" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> Siga no Instagram
+                        </a>
                     </div>
+                </div>
             </div>
             
-            <!-- PATROCINADORES STANDARD (MENORES) -->
-            <div class="sponsors-category fade-in">
-                <h3 class="sponsor-category-title bronze">Patrocinadores Bronze</h3>
+            <!-- PATROCINADORES BRONZE (TAMANHO: 50% DO OURO) -->
+            <div class="sponsors-category bronze fade-in">
+                <h3 class="sponsor-category-title">Patrocinadores Bronze</h3>
                 <div class="sponsor-grid">
-                    <div class="sponsor-card standard">
-                        <img src="assets/images/sponsors/standard-1.png" alt="Patrocinador Standard" class="sponsor-logo">
-                        <a href="https://www.instagram.com/serrafruitmb/" class="sponsor-link" target="_blank">siga no Instagram <i class="fas fa-external-link-alt"></i></a>
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/standard-1.png" alt="Patrocinador Bronze" class="sponsor-logo">
+                        <a href="https://www.instagram.com/serrafruitmb/" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> siga no Instagram
+                        </a>
                     </div>
                     
-                    <div class="sponsor-card standard">
-                        <img src="assets/images/sponsors/standard-2.png" alt="Patrocinador Standard" class="sponsor-logo">
-                        <a href="https://www.instagram.com/natan_adesivos/" class="sponsor-link" target="_blank">siga no Instagram <i class="fas fa-external-link-alt"></i></a>
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/standard-2.png" alt="Patrocinador Bronze" class="sponsor-logo">
+                        <a href="https://www.instagram.com/natan_adesivos/" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> siga no Instagram
+                        </a>
                     </div>
                     
-                    <div class="sponsor-card standard">
-                        <img src="assets/images/sponsors/standard-3.png" alt="Patrocinador Standard" class="sponsor-logo">
-                        <a href="https://patrocinador3.com" class="sponsor-link" target="_blank">siga no Instagram <i class="fas fa-external-link-alt"></i></a>
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/standard-3.png" alt="Patrocinador Bronze" class="sponsor-logo">
+                        <a href="https://patrocinador3.com" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> siga no Instagram
+                        </a>
                     </div>
-                     <div class="sponsor-card standard">
-                        <img src="assets/images/sponsors/standard-4.png" alt="Patrocinador Standard" class="sponsor-logo">
-                        <a href="https://www.instagram.com/pcar.veiculoss/?hl=pt-br" class="sponsor-link" target="_blank">siga no Instagram <i class="fas fa-external-link-alt"></i></a>
+                    
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/standard-4.png" alt="Patrocinador Bronze" class="sponsor-logo">
+                        <a href="https://www.instagram.com/pcar.veiculoss/?hl=pt-br" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> siga no Instagram
+                        </a>
                     </div>
-                     <div class="sponsor-card standard">
-                        <img src="assets/images/sponsors/standard-5.png" alt="Patrocinador Standard" class="sponsor-logo">
-                        <a href="https://patrocinador5.com" class="sponsor-link" target="_blank">siga no Instagram <i class="fas fa-external-link-alt"></i></a>
+                    
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/standard-5.png" alt="Patrocinador Bronze" class="sponsor-logo">
+                        <a href="https://patrocinador5.com" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> siga no Instagram
+                        </a>
+                    </div>
+                    
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/standard-6.png" alt="Patrocinador Bronze" class="sponsor-logo">
+                        <a href="https://patrocinador6.com" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> siga no Instagram
+                        </a>
+                    </div>
+                    
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/standard-7.png" alt="Patrocinador Bronze" class="sponsor-logo">
+                        <a href="https://patrocinador7.com" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> siga no Instagram
+                        </a>
+                    </div>
+                    
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/standard-8.png" alt="Patrocinador Bronze" class="sponsor-logo">
+                        <a href="https://patrocinador8.com" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> siga no Instagram
+                        </a>
+                    </div>
+                    
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsors/standard-9.png" alt="Patrocinador Bronze" class="sponsor-logo">
+                        <a href="https://patrocinador9.com" class="sponsor-link" target="_blank">
+                            <i class="fab fa-instagram"></i> siga no Instagram
+                        </a>
                     </div>
                 </div>
             </div>
