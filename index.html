@@ -144,7 +144,7 @@
             cursor: pointer;
         }
 
-        /* ===== BANNERS MENORES ===== */
+        /* ===== BANNERS MENORES COM BOTÃO DE INSCRIÇÃO ===== */
         .desktop-banner-container {
             position: relative;
             width: 100%;
@@ -187,6 +187,62 @@
                 rgba(10, 10, 10, 0.8) 100%
             );
             z-index: 1;
+        }
+
+        /* BOTÃO DE INSCRIÇÃO NO BANNER */
+        .banner-cta {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: white;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            animation: pulse-glow-banner 2s infinite;
+            box-shadow: 0 15px 35px rgba(211, 84, 0, 0.5);
+            border: 3px solid rgba(255,255,255,0.3);
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .banner-cta:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+            box-shadow: 0 20px 40px rgba(211, 84, 0, 0.8);
+            background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
+            border-color: white;
+        }
+
+        @keyframes pulse-glow-banner {
+            0% { box-shadow: 0 15px 35px rgba(211, 84, 0, 0.5); }
+            50% { box-shadow: 0 15px 45px rgba(211, 84, 0, 0.8); }
+            100% { box-shadow: 0 15px 35px rgba(211, 84, 0, 0.5); }
+        }
+
+        /* Responsividade do botão no banner */
+        @media (max-width: 768px) {
+            .banner-cta {
+                padding: 14px 30px;
+                font-size: 1.3rem;
+                white-space: normal;
+                width: 80%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .banner-cta {
+                padding: 12px 20px;
+                font-size: 1.1rem;
+            }
         }
 
         /* ===== HERO SECTION MENOR ===== */
@@ -311,7 +367,7 @@
             font-style: italic;
         }
 
-        /* ===== BOTÕES MENORES ===== */
+        /* ===== BOTÕES MENORES (hero e registration) ===== */
         .hero-cta, .registration-cta {
             display: inline-block;
             padding: 15px 40px;
@@ -1538,16 +1594,18 @@
         </div>
     </header>
     
-    <!-- BANNER DESKTOP (visível apenas em desktop) -->
+    <!-- BANNER DESKTOP (visível apenas em desktop) COM BOTÃO DE INSCRIÇÃO -->
     <div class="desktop-banner-container" id="top-banner-desktop">
         <img src="assets/images/banner-inicio-desktop.png" alt="Banner Inicial Desktop 2º Trilhão Tianguá Off Road" class="desktop-banner">
         <div class="banner-overlay"></div>
+        <a href="https://forms.gle/4Yzgy5Dostw8SX3n8" class="banner-cta" target="_blank">INSCREVA-SE AGORA</a>
     </div>
     
-    <!-- BANNER MOBILE (visível apenas em mobile) -->
+    <!-- BANNER MOBILE (visível apenas em mobile) COM BOTÃO DE INSCRIÇÃO -->
     <div class="mobile-banner-container" id="top-banner-mobile">
         <img src="assets/images/banner-inicio-mobile.png" alt="Banner Inicial Mobile 2º Trilhão Tianguá Off Road" class="mobile-banner">
         <div class="banner-overlay"></div>
+        <a href="https://forms.gle/4Yzgy5Dostw8SX3n8" class="banner-cta" target="_blank">INSCREVA-SE AGORA</a>
     </div>
     
     <!-- BANNER PRINCIPAL COM LOGO E CRONÔMETRO -->
@@ -1924,7 +1982,7 @@
                         <a href="https://www.instagram.com/lojar1men/" class="sponsor-link" target="_blank">
                             <i class="fab fa-instagram"></i> Siga no Instagram</a>
                     </div>
-                    div class="sponsor-card">
+                    <div class="sponsor-card">
                         <img src="assets/images/sponsors/standard-19.png" alt="Patrocinador Bronze" class="sponsor-logo">
                         <a href="https://www.instagram.com/clubedochurrascotga/" class="sponsor-link" target="_blank">
                             <i class="fab fa-instagram"></i> Siga no Instagram</a>
