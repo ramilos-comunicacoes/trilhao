@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
     <style>
-        /* ===== CONFIGURAÇÕES GERAIS ===== */
+        /* ===== CONFIGURAÇÕES GERAIS (mantidas) ===== */
         :root {
             --primary-color: #D35400;
             --secondary-color: #2C3E50;
@@ -62,7 +62,7 @@
             pointer-events: none;
         }
 
-        /* ===== HEADER MENOR ===== */
+        /* ===== HEADER (mantido) ===== */
         .main-header {
             position: fixed;
             top: 0;
@@ -144,7 +144,7 @@
             cursor: pointer;
         }
 
-        /* ===== BANNERS MENORES COM BOTÃO DE INSCRIÇÃO ===== */
+        /* ===== BANNERS COM MENSAGEM DE INSCRIÇÕES ENCERRADAS ===== */
         .desktop-banner-container {
             position: relative;
             width: 100%;
@@ -189,8 +189,8 @@
             z-index: 1;
         }
 
-        /* BOTÃO DE INSCRIÇÃO NO BANNER */
-        .banner-cta {
+        /* Mensagem no banner (substitui o botão de inscrição) */
+        .banner-closed {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -198,38 +198,22 @@
             z-index: 10;
             display: inline-block;
             padding: 18px 50px;
-            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            background: rgba(100, 100, 100, 0.9);
             color: white;
-            text-decoration: none;
             font-weight: 900;
             font-size: 1.8rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             border-radius: 50px;
-            transition: all 0.4s ease;
-            animation: pulse-glow-banner 2s infinite;
-            box-shadow: 0 15px 35px rgba(211, 84, 0, 0.5);
-            border: 3px solid rgba(255,255,255,0.3);
             text-align: center;
             white-space: nowrap;
+            border: 3px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(5px);
+            cursor: default;
         }
 
-        .banner-cta:hover {
-            transform: translate(-50%, -50%) scale(1.05);
-            box-shadow: 0 20px 40px rgba(211, 84, 0, 0.8);
-            background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
-            border-color: white;
-        }
-
-        @keyframes pulse-glow-banner {
-            0% { box-shadow: 0 15px 35px rgba(211, 84, 0, 0.5); }
-            50% { box-shadow: 0 15px 45px rgba(211, 84, 0, 0.8); }
-            100% { box-shadow: 0 15px 35px rgba(211, 84, 0, 0.5); }
-        }
-
-        /* Responsividade do botão no banner */
         @media (max-width: 768px) {
-            .banner-cta {
+            .banner-closed {
                 padding: 14px 30px;
                 font-size: 1.3rem;
                 white-space: normal;
@@ -239,13 +223,13 @@
         }
 
         @media (max-width: 576px) {
-            .banner-cta {
+            .banner-closed {
                 padding: 12px 20px;
                 font-size: 1.1rem;
             }
         }
 
-        /* ===== HERO SECTION MENOR ===== */
+        /* ===== HERO SECTION ===== */
         .hero-section {
             position: relative;
             min-height: auto;
@@ -307,7 +291,7 @@
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
         }
 
-        /* ===== CONTADOR REGRESSIVO MENOR ===== */
+        /* ===== CONTADOR REGRESSIVO ===== */
         .countdown-container {
             margin: 30px auto 50px;
             max-width: 800px;
@@ -365,37 +349,26 @@
             margin-top: 20px;
             font-size: 1.1rem;
             font-style: italic;
+            color: #ffaa66;
         }
 
-        /* ===== BOTÕES MENORES (hero e registration) ===== */
-        .hero-cta, .registration-cta {
+        /* Botão da hero substituído por texto */
+        .hero-closed {
             display: inline-block;
             padding: 15px 40px;
-            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            background: rgba(100, 100, 100, 0.8);
             color: white;
-            text-decoration: none;
             font-weight: 900;
             font-size: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             border-radius: 40px;
-            transition: all 0.4s ease;
-            animation: pulse-glow 2s infinite;
-            box-shadow: 0 12px 30px rgba(211, 84, 0, 0.5);
+            cursor: default;
+            box-shadow: none;
+            backdrop-filter: blur(4px);
         }
 
-        .hero-cta:hover, .registration-cta:hover {
-            transform: translateY(-6px) scale(1.03);
-            box-shadow: 0 15px 35px rgba(211, 84, 0, 0.7);
-        }
-
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 12px 30px rgba(211, 84, 0, 0.5); }
-            50% { box-shadow: 0 12px 35px rgba(211, 84, 0, 0.7); }
-            100% { box-shadow: 0 12px 30px rgba(211, 84, 0, 0.5); }
-        }
-
-        /* ===== MOTOCICLETA MENOR ===== */
+        /* ===== MOTOCICLETA ===== */
         .trail-bike {
             position: absolute;
             bottom: 1px;
@@ -419,7 +392,7 @@
             100% { left: -200px; transform: scaleX(1); }
         }
 
-        /* ===== SEÇÃO SOBRE MENOR ===== */
+        /* ===== SEÇÃO SOBRE (mantida) ===== */
         .about-section {
             background: rgba(26, 37, 47, 0.8);
         }
@@ -512,7 +485,7 @@
             flex-shrink: 0;
         }
 
-        /* ===== GALERIA DE VÍDEOS MENOR ===== */
+        /* ===== GALERIA DE VÍDEOS ===== */
         .video-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -544,7 +517,7 @@
             border: none;
         }
 
-        /* ===== MAPA MENOR ===== */
+        /* ===== MAPA ===== */
         .trail-map-section {
             background: rgba(10, 10, 10, 0.9);
         }
@@ -564,12 +537,11 @@
             border: none;
         }
 
-        /* ===== PATROCINADORES - NOVA ESTRUTURA COM HIERARQUIA DE TAMANHOS ===== */
+        /* ===== PATROCINADORES (mantido) ===== */
         .sponsors-section {
             background: rgba(77, 55, 43, 0.8);
         }
 
-        /* SEÇÃO DIVIDIDA POR CATEGORIAS */
         .sponsors-category {
             margin-bottom: 100px;
             padding: 40px 30px;
@@ -582,7 +554,6 @@
             margin-bottom: 50px;
         }
 
-        /* CORES E FUNDOS DIFERENCIADOS PARA CADA CATEGORIA */
         .sponsors-category.gold {
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(139, 69, 19, 0.2));
             border: 3px solid var(--gold-color);
@@ -603,7 +574,6 @@
             margin-top: 60px;
         }
 
-        /* TÍTULOS DAS CATEGORIAS */
         .sponsor-category-title {
             text-align: center;
             font-size: 2.5rem;
@@ -650,14 +620,12 @@
             background: linear-gradient(135deg, #CD7F32, #8B4513, #A0522D);
         }
 
-        /* GRID DE PATROCINADORES */
         .sponsor-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 35px;
         }
 
-        /* CARD DE PATROCINADOR - TAMANHO BASE (OURO) */
         .sponsor-card {
             background: rgba(44, 62, 80, 0.95);
             border-radius: 15px;
@@ -677,28 +645,24 @@
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
         }
 
-        /* HIERARQUIA DE TAMANHOS - OURO 100% */
         .gold .sponsor-card {
             min-height: 280px;
             padding: 40px 30px;
             border-color: var(--gold-color);
         }
 
-        /* PRATA 75% (diminuiu 25%) */
         .silver .sponsor-card {
-            min-height: 210px; /* 75% de 280px */
-            padding: 30px 22px; /* 75% do padding do ouro */
+            min-height: 210px;
+            padding: 30px 22px;
             border-color: var(--silver-color);
         }
 
-        /* BRONZE 50% (diminuiu mais 25% em relação à prata) */
         .bronze .sponsor-card {
-            min-height: 140px; /* 50% de 280px */
-            padding: 20px 15px; /* 50% do padding do ouro */
+            min-height: 140px;
+            padding: 20px 15px;
             border-color: var(--bronze-color);
         }
 
-        /* LOGOS - TAMANHO PROPORCIONAL À HIERARQUIA */
         .sponsor-logo {
             max-width: 100%;
             transition: all 0.5s ease;
@@ -713,20 +677,19 @@
         }
 
         .silver .sponsor-logo {
-            max-height: 105px; /* 75% de 140px */
-            margin-bottom: 18px; /* 75% de 25px */
+            max-height: 105px;
+            margin-bottom: 18px;
         }
 
         .bronze .sponsor-logo {
-            max-height: 70px; /* 50% de 140px */
-            margin-bottom: 12px; /* 50% de 25px */
+            max-height: 70px;
+            margin-bottom: 12px;
         }
 
         .sponsor-card:hover .sponsor-logo {
             transform: scale(1.1);
         }
 
-        /* LINKS - TAMANHO PROPORCIONAL */
         .sponsor-link {
             color: var(--primary-color);
             text-decoration: none;
@@ -746,13 +709,13 @@
         }
 
         .silver .sponsor-link {
-            font-size: 0.85rem; /* 85% do original */
-            padding: 8px 16px; /* 80% do padding do ouro */
+            font-size: 0.85rem;
+            padding: 8px 16px;
         }
 
         .bronze .sponsor-link {
-            font-size: 0.75rem; /* 75% do original */
-            padding: 6px 12px; /* 60% do padding do ouro */
+            font-size: 0.75rem;
+            padding: 6px 12px;
         }
 
         .sponsor-link:hover {
@@ -762,7 +725,7 @@
             box-shadow: 0 8px 20px rgba(211, 84, 0, 0.4);
         }
 
-        /* ===== CRONOGRAMA MENOR ===== */
+        /* ===== CRONOGRAMA (mantido) ===== */
         .schedule-section {
             background: rgba(10, 10, 10, 0.9);
         }
@@ -901,7 +864,7 @@
             font-size: 0.85rem;
         }
 
-        /* ===== BENEFÍCIOS MENORES ===== */
+        /* ===== BENEFÍCIOS (mantido) ===== */
         .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -942,7 +905,7 @@
             transform: rotate(15deg) scale(1.05);
         }
 
-        /* ===== GALERIA MENOR ===== */
+        /* ===== GALERIA ===== */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -975,10 +938,24 @@
             transform: scale(1.08);
         }
 
-        /* ===== INSCRIÇÃO MENOR ===== */
+        /* ===== SEÇÃO INSCRIÇÃO ADAPTADA ===== */
         .registration-section {
             background: linear-gradient(135deg, rgba(26, 37, 47, 0.95), rgba(211, 84, 0, 0.15));
             text-align: center;
+        }
+
+        .registration-closed {
+            display: inline-block;
+            padding: 15px 40px;
+            background: rgba(100, 100, 100, 0.8);
+            color: white;
+            font-weight: 900;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 40px;
+            cursor: default;
+            margin: 20px auto;
         }
 
         .registration-features {
@@ -1004,17 +981,7 @@
             border-left: 4px solid var(--accent-color);
         }
 
-        .registration-info {
-            margin-top: 40px;
-            font-size: 1.2rem;
-            background: rgba(44, 62, 80, 0.6);
-            padding: 20px;
-            border-radius: 12px;
-            display: inline-block;
-            border: 2px solid var(--primary-color);
-        }
-
-        /* ===== RODAPÉ MENOR ===== */
+        /* ===== RODAPÉ (mantido) ===== */
         .main-footer {
             background: var(--dark-color);
             padding: 60px 0 30px;
@@ -1078,7 +1045,7 @@
             100% { transform: scale(1); }
         }
 
-        /* ===== ANIMAÇÕES DE ENTRADA ===== */
+        /* ===== ANIMAÇÕES ===== */
         .fade-in {
             opacity: 0;
             transform: translateY(25px);
@@ -1090,7 +1057,7 @@
             transform: translateY(0);
         }
 
-        /* ===== BOTÃO WHATSAPP FLUTUANTE ===== */
+        /* ===== WHATSAPP FLUTUANTE ===== */
         .whatsapp-float {
             position: fixed;
             bottom: 25px;
@@ -1125,458 +1092,127 @@
             font-size: 36px;
         }
 
-        /* Responsividade do botão WhatsApp */
-        @media (max-width: 768px) {
-            .whatsapp-float {
-                width: 60px;
-                height: 60px;
-                bottom: 20px;
-                right: 20px;
-            }
-            
-            .whatsapp-float i {
-                font-size: 32px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .whatsapp-float {
-                width: 55px;
-                height: 55px;
-                bottom: 15px;
-                right: 15px;
-            }
-            
-            .whatsapp-float i {
-                font-size: 28px;
-            }
-        }
-
-        /* ===== RESPONSIVIDADE ===== */
+        /* ===== RESPONSIVIDADE (mantida) ===== */
         @media (max-width: 1200px) {
-            .hero-logo {
-                max-width: 400px;
-            }
-            
-            .section-title {
-                font-size: 2.5rem;
-            }
-            
-            .schedule-container {
-                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            }
-            
-            .sponsor-category-title {
-                font-size: 2.2rem;
-            }
+            .hero-logo { max-width: 400px; }
+            .section-title { font-size: 2.5rem; }
+            .schedule-container { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
+            .sponsor-category-title { font-size: 2.2rem; }
         }
 
         @media (max-width: 992px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-            
+            .mobile-menu-btn { display: block; }
             .nav-menu {
-                position: fixed;
-                top: 90px;
-                left: 0;
-                width: 100%;
+                position: fixed; top: 90px; left: 0; width: 100%;
                 background: rgba(26, 37, 47, 0.98);
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                gap: 0;
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
+                flex-direction: column; align-items: center; padding: 20px 0;
+                transform: translateY(-100%); opacity: 0; visibility: hidden;
                 transition: all 0.4s ease;
             }
-            
-            .nav-menu.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-            
-            .nav-item {
-                width: 100%;
-                text-align: center;
-            }
-            
-            .nav-link {
-                display: block;
-                padding: 15px;
-            }
-            
-            .hero-logo {
-                max-width: 350px;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.4rem;
-            }
-            
-            .video-gallery {
-                grid-template-columns: 1fr;
-            }
-            
-            .video-item {
-                height: 250px;
-            }
-            
-            .trail-bike {
-                width: 180px;
-                height: 120px;
-                bottom: 20px;
-            }
-            
-            .about-features {
-                grid-template-columns: 1fr;
-            }
-            
-            .schedule-container {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .sponsors-category {
-                padding: 30px 20px;
-                margin-bottom: 80px;
-            }
-            
-            .sponsor-category-title {
-                font-size: 2rem;
-            }
+            .nav-menu.active { transform: translateY(0); opacity: 1; visibility: visible; }
+            .nav-item { width: 100%; text-align: center; }
+            .nav-link { display: block; padding: 15px; }
+            .hero-logo { max-width: 350px; }
+            .hero-subtitle { font-size: 1.4rem; }
+            .video-gallery { grid-template-columns: 1fr; }
+            .video-item { height: 250px; }
+            .trail-bike { width: 180px; height: 120px; bottom: 20px; }
+            .about-features { grid-template-columns: 1fr; }
+            .schedule-container { grid-template-columns: 1fr; gap: 30px; }
+            .sponsors-category { padding: 30px 20px; margin-bottom: 80px; }
+            .sponsor-category-title { font-size: 2rem; }
         }
 
         @media (max-width: 768px) {
-            section {
-                padding: 60px 0;
-            }
-            
-            .hero-logo {
-                max-width: 300px;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.3rem;
-            }
-            
-            .section-title {
-                font-size: 2.2rem;
-            }
-            
-            .trail-bike {
-                display: none;
-            }
-            
-            .sponsor-grid {
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-                gap: 25px;
-            }
-            
-            .benefits-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .video-item {
-                height: 220px;
-            }
-            
-            /* TROCA EFETIVA DOS BANNERS */
-            .desktop-banner-container {
-                display: none !important;
-            }
-            
-            .mobile-banner-container {
-                display: block !important;
-                min-height: 350px;
-            }
-            
-            .schedule-day {
-                padding: 25px 20px;
-            }
-            
-            .day-title {
-                font-size: 1.8rem;
-            }
-            
-            .timeline-item {
-                flex-direction: column;
-                padding-left: 20px;
-            }
-            
-            .timeline-time {
-                margin-right: 0;
-                margin-bottom: 12px;
-                align-self: flex-start;
-            }
-
-            .desktop-banner-container {
-                height: 50vh;
-                min-height: 400px;
-            }
-            
-            .mobile-banner-container {
-                height: 45vh;
-                min-height: 350px;
-            }
-            
-            .sponsors-category {
-                margin-top: 40px !important;
-                margin-bottom: 60px;
-            }
-            
-            .sponsor-category-title {
-                font-size: 1.8rem;
-                margin-bottom: 35px;
-            }
-            
-            /* Ajustes de tamanho para mobile */
-            .gold .sponsor-card {
-                min-height: 220px;
-                padding: 30px 20px;
-            }
-            
-            .silver .sponsor-card {
-                min-height: 165px; /* 75% de 220px */
-                padding: 22px 16px;
-            }
-            
-            .bronze .sponsor-card {
-                min-height: 110px; /* 50% de 220px */
-                padding: 15px 10px;
-            }
-            
-            .gold .sponsor-logo {
-                max-height: 120px;
-                margin-bottom: 20px;
-            }
-            
-            .silver .sponsor-logo {
-                max-height: 90px; /* 75% de 120px */
-                margin-bottom: 15px;
-            }
-            
-            .bronze .sponsor-logo {
-                max-height: 60px; /* 50% de 120px */
-                margin-bottom: 10px;
-            }
+            section { padding: 60px 0; }
+            .hero-logo { max-width: 300px; }
+            .hero-subtitle { font-size: 1.3rem; }
+            .section-title { font-size: 2.2rem; }
+            .trail-bike { display: none; }
+            .sponsor-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
+            .benefits-grid { grid-template-columns: 1fr; gap: 20px; }
+            .video-item { height: 220px; }
+            .desktop-banner-container { display: none !important; }
+            .mobile-banner-container { display: block !important; min-height: 350px; }
+            .schedule-day { padding: 25px 20px; }
+            .day-title { font-size: 1.8rem; }
+            .timeline-item { flex-direction: column; padding-left: 20px; }
+            .timeline-time { margin-right: 0; margin-bottom: 12px; align-self: flex-start; }
+            .desktop-banner-container { height: 50vh; min-height: 400px; }
+            .mobile-banner-container { height: 45vh; min-height: 350px; }
+            .sponsors-category { margin-top: 40px !important; margin-bottom: 60px; }
+            .sponsor-category-title { font-size: 1.8rem; margin-bottom: 35px; }
+            .gold .sponsor-card { min-height: 220px; padding: 30px 20px; }
+            .silver .sponsor-card { min-height: 165px; padding: 22px 16px; }
+            .bronze .sponsor-card { min-height: 110px; padding: 15px 10px; }
+            .gold .sponsor-logo { max-height: 120px; margin-bottom: 20px; }
+            .silver .sponsor-logo { max-height: 90px; margin-bottom: 15px; }
+            .bronze .sponsor-logo { max-height: 60px; margin-bottom: 10px; }
         }
 
         @media (max-width: 576px) {
-            .hero-logo {
-                max-width: 250px;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .social-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.3rem;
-            }
-            
-            .video-item {
-                height: 180px;
-            }
-            
-            .mobile-banner-container {
-                min-height: 300px;
-                margin-top: 90px;
-            }
-            
-            .countdown-item {
-                min-width: 100px;
-                padding: 15px 8px;
-            }
-            
-            .countdown-number {
-                font-size: 2rem;
-            }
-            
-            .schedule-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .schedule-day {
-                padding: 20px 15px;
-            }
-            
-            .day-title {
-                font-size: 1.6rem;
-            }
-            
-            .timeline-title {
-                font-size: 1.2rem;
-            }
-            
-            .timeline-description {
-                font-size: 0.95rem;
-            }
-            
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            }
-            
-            .gallery-item {
-                height: 180px;
-            }
-            
-            .sponsors-category {
-                padding: 25px 15px;
-                margin-bottom: 50px;
-            }
-            
-            .sponsor-category-title {
-                font-size: 1.6rem;
-                margin-bottom: 30px;
-            }
-            
-            .sponsor-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-            
-            /* Ajustes de tamanho para mobile pequeno */
-            .gold .sponsor-card {
-                min-height: 180px;
-                padding: 25px 15px;
-            }
-            
-            .silver .sponsor-card {
-                min-height: 135px; /* 75% de 180px */
-                padding: 18px 12px;
-            }
-            
-            .bronze .sponsor-card {
-                min-height: 90px; /* 50% de 180px */
-                padding: 12px 8px;
-            }
-            
-            .gold .sponsor-logo {
-                max-height: 100px;
-                margin-bottom: 15px;
-            }
-            
-            .silver .sponsor-logo {
-                max-height: 75px; /* 75% de 100px */
-                margin-bottom: 12px;
-            }
-            
-            .bronze .sponsor-logo {
-                max-height: 50px; /* 50% de 100px */
-                margin-bottom: 8px;
-            }
-            
-            .gold .sponsor-link {
-                font-size: 0.9rem;
-                padding: 8px 16px;
-            }
-            
-            .silver .sponsor-link {
-                font-size: 0.8rem;
-                padding: 6px 12px;
-            }
-            
-            .bronze .sponsor-link {
-                font-size: 0.7rem;
-                padding: 5px 10px;
-            }
+            .hero-logo { max-width: 250px; }
+            .hero-subtitle { font-size: 1.1rem; }
+            .section-title { font-size: 2rem; }
+            .footer-content { grid-template-columns: 1fr; gap: 30px; }
+            .social-icon { width: 50px; height: 50px; font-size: 1.3rem; }
+            .video-item { height: 180px; }
+            .mobile-banner-container { min-height: 300px; margin-top: 90px; }
+            .countdown-item { min-width: 100px; padding: 15px 8px; }
+            .countdown-number { font-size: 2rem; }
+            .schedule-container { grid-template-columns: 1fr; }
+            .schedule-day { padding: 20px 15px; }
+            .day-title { font-size: 1.6rem; }
+            .timeline-title { font-size: 1.2rem; }
+            .timeline-description { font-size: 0.95rem; }
+            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+            .gallery-item { height: 180px; }
+            .sponsors-category { padding: 25px 15px; margin-bottom: 50px; }
+            .sponsor-category-title { font-size: 1.6rem; margin-bottom: 30px; }
+            .sponsor-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .gold .sponsor-card { min-height: 180px; padding: 25px 15px; }
+            .silver .sponsor-card { min-height: 135px; padding: 18px 12px; }
+            .bronze .sponsor-card { min-height: 90px; padding: 12px 8px; }
+            .gold .sponsor-logo { max-height: 100px; margin-bottom: 15px; }
+            .silver .sponsor-logo { max-height: 75px; margin-bottom: 12px; }
+            .bronze .sponsor-logo { max-height: 50px; margin-bottom: 8px; }
+            .gold .sponsor-link { font-size: 0.9rem; padding: 8px 16px; }
+            .silver .sponsor-link { font-size: 0.8rem; padding: 6px 12px; }
+            .bronze .sponsor-link { font-size: 0.7rem; padding: 5px 10px; }
         }
 
         @media (max-width: 400px) {
-            .hero-logo {
-                max-width: 220px;
-            }
-            
-            .countdown {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .countdown-item {
-                min-width: 90px;
-                padding: 12px 5px;
-            }
-            
-            .hero-cta, .registration-cta {
-                padding: 12px 30px;
-                font-size: 1.3rem;
-            }
-            
-            .video-gallery {
-                grid-template-columns: 1fr;
-            }
-            
-            .video-item {
-                height: 160px;
-            }
-            
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .gallery-item {
-                height: 150px;
-            }
-            
-            .map-container {
-                height: 350px;
-            }
-            
-            .sponsor-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
+            .hero-logo { max-width: 220px; }
+            .countdown { grid-template-columns: repeat(2, 1fr); }
+            .countdown-item { min-width: 90px; padding: 12px 5px; }
+            .hero-closed, .registration-closed { padding: 12px 30px; font-size: 1.3rem; }
+            .video-gallery { grid-template-columns: 1fr; }
+            .video-item { height: 160px; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-item { height: 150px; }
+            .map-container { height: 350px; }
+            .sponsor-grid { grid-template-columns: 1fr; gap: 15px; }
         }
 
-        /* Para telas muito altas (mais de 16:9) */
         @media (min-aspect-ratio: 16/9) {
-            .desktop-banner, .mobile-banner {
-                object-fit: contain;
-                background-color: #000;
-            }
+            .desktop-banner, .mobile-banner { object-fit: contain; background-color: #000; }
         }
 
-        /* Para telas muito largas */
         @media (min-width: 1920px) {
-            .desktop-banner-container, .mobile-banner-container {
-                height: 70vh;
-            }
-            
-            .sponsors-category {
-                margin-bottom: 120px;
-            }
-            
-            .sponsor-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
+            .desktop-banner-container, .mobile-banner-container { height: 70vh; }
+            .sponsors-category { margin-bottom: 120px; }
+            .sponsor-grid { grid-template-columns: repeat(4, 1fr); }
         }
     </style>
 </head>
 <body>
-    <!-- PARTÍCULAS DE FUNDO -->
     <div id="particles-js"></div>
     
-    <!-- CABEÇALHO -->
     <header class="main-header">
         <div class="container header-container">
             <div class="logo">
                 <img src="assets/images/logo.png" alt="2º Trilhão Tianguá Off Road" class="logo-img">
             </div>
-            
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
@@ -1594,143 +1230,84 @@
         </div>
     </header>
     
-    <!-- BANNER DESKTOP (visível apenas em desktop) COM BOTÃO DE INSCRIÇÃO -->
+    <!-- BANNERS COM MENSAGEM "INSCRIÇÕES ENCERRADAS" -->
     <div class="desktop-banner-container" id="top-banner-desktop">
-        <img src="assets/images/banner-inicio-desktop.png" alt="Banner Inicial Desktop 2º Trilhão Tianguá Off Road" class="desktop-banner">
+        <img src="assets/images/banner-inicio-desktop.png" alt="Banner Inicial Desktop" class="desktop-banner">
         <div class="banner-overlay"></div>
-        <a href="https://forms.gle/4Yzgy5Dostw8SX3n8" class="banner-cta" target="_blank">INSCREVA-SE AGORA</a>
+        <div class="banner-closed">INSCRIÇÕES ENCERRADAS</div>
     </div>
     
-    <!-- BANNER MOBILE (visível apenas em mobile) COM BOTÃO DE INSCRIÇÃO -->
     <div class="mobile-banner-container" id="top-banner-mobile">
-        <img src="assets/images/banner-inicio-mobile.png" alt="Banner Inicial Mobile 2º Trilhão Tianguá Off Road" class="mobile-banner">
+        <img src="assets/images/banner-inicio-mobile.png" alt="Banner Inicial Mobile" class="mobile-banner">
         <div class="banner-overlay"></div>
-        <a href="https://forms.gle/4Yzgy5Dostw8SX3n8" class="banner-cta" target="_blank">INSCREVA-SE AGORA</a>
+        <div class="banner-closed">INSCRIÇÕES ENCERRADAS</div>
     </div>
     
-    <!-- BANNER PRINCIPAL COM LOGO E CRONÔMETRO -->
+    <!-- HERO SECTION COM MENSAGEM ENCERRADA -->
     <section class="hero-section" id="home">
         <img src="assets/images/banner.png" alt="Banner 2º Trilhão Tianguá" class="hero-banner">
         <div class="hero-overlay"></div>
-        
         <div class="trail-bike">
             <img src="assets/images/moto.png" alt="Moto de Trilha" class="bike-img">
         </div>
-        
         <div class="container hero-content">
-            <!-- LOGO GRANDE E CENTRALIZADA -->
             <img src="assets/images/logo-grande.png" alt="2º Trilhão Tianguá Off Road" class="hero-logo">
-            
             <p class="hero-subtitle">A maior trilha off-road do Nordeste brasileiro. 120km de adrenalina entre Tianguá, Ubajara e Viçosa do Ceará.</p>
-            
             <div class="countdown-container fade-in">
                 <h2 class="countdown-title">CONTAGEM REGRESSIVA PARA A AVENTURA</h2>
                 <div class="countdown" id="countdown">
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="days">00</div>
-                        <div class="countdown-label">Dias</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="hours">00</div>
-                        <div class="countdown-label">Horas</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="minutes">00</div>
-                        <div class="countdown-label">Minutos</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="seconds">00</div>
-                        <div class="countdown-label">Segundos</div>
-                    </div>
+                    <div class="countdown-item"><div class="countdown-number" id="days">00</div><div class="countdown-label">Dias</div></div>
+                    <div class="countdown-item"><div class="countdown-number" id="hours">00</div><div class="countdown-label">Horas</div></div>
+                    <div class="countdown-item"><div class="countdown-number" id="minutes">00</div><div class="countdown-label">Minutos</div></div>
+                    <div class="countdown-item"><div class="countdown-number" id="seconds">00</div><div class="countdown-label">Segundos</div></div>
                 </div>
-                <!-- DATA ALTERADA PARA 28 DE MARÇO -->
-                <p class="countdown-note">Inscrições limitadas! <strong>Não perca a data limite: 28 de Março de 2026</strong></p>
+                <p class="countdown-note"><strong>Inscrições Encerradas.</strong> Agradecemos a participação de todos!</p>
             </div>
-            
-            <a href="https://forms.gle/4Yzgy5Dostw8SX3n8" class="hero-cta" target="_blank">INSCREVA-SE AGORA</a>
+            <div class="hero-closed">INSCRIÇÕES ENCERRADAS</div>
         </div>
     </section>
     
-    <!-- SOBRE O EVENTO -->
+    <!-- SOBRE (mantido) -->
     <section class="about-section" id="about">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Sobre o Evento</h2>
                 <p class="section-subtitle">Conheça a maior aventura off-road da região, que reúne apaixonados por adrenalina e veículos 4x4.</p>
             </div>
-            
             <div class="about-content fade-in">
                 <div class="about-text">
                     <h3>2º TRILHÃO TIANGUÁ OFF ROAD</h3>
                     <p>Uma experiência única que desafia os limites de homens e máquinas. Percorrendo os caminhos mais radicais entre as cidades de <strong>Tianguá, Ubajara e Viçosa do Ceará</strong>, essa trilha se tornou o maior evento off-road da região Nordeste.</p>
                     <p>Com mais de 120km de percurso off-road, o evento reúne centenas de participantes e milhares de espectadores, movimentando a economia local e promovendo o turismo de aventura.</p>
-                    
                     <div class="about-features">
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
-                            <div class="feature-text">120km de trilha off-road</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
-                            <div class="feature-text">2 dias de evento</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-users"></i></div>
-                            <div class="feature-text">+800 participantes</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-trophy"></i></div>
-                            <div class="feature-text">Premiação especial</div>
-                        </div>
+                        <div class="feature-item"><div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div><div class="feature-text">120km de trilha off-road</div></div>
+                        <div class="feature-item"><div class="feature-icon"><i class="fas fa-calendar-alt"></i></div><div class="feature-text">2 dias de evento</div></div>
+                        <div class="feature-item"><div class="feature-icon"><i class="fas fa-users"></i></div><div class="feature-text">+800 participantes</div></div>
+                        <div class="feature-item"><div class="feature-icon"><i class="fas fa-trophy"></i></div><div class="feature-text">Premiação especial</div></div>
                     </div>
                 </div>
-                
-                <!-- GALERIA DE VÍDEOS ATUALIZADA -->
                 <div class="video-gallery">
-                    <div class="video-item">
-                        <video class="video-player" autoplay muted loop playsinline>
-                            <source src="assets/images/videos/video-1.mp4" type="video/mp4">
-                            Seu navegador não suporta vídeos HTML5.
-                        </video>
-                        <div class="video-overlay">
-                            <div class="video-play-btn">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="video-item">
-                        <video class="video-player" autoplay muted loop playsinline>
-                            <source src="assets/images/videos/video-2.mp4" type="video/mp4">
-                        </video>
-                        <div class="video-overlay">
-                            <div class="video-play-btn">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="video-item"><video class="video-player" autoplay muted loop playsinline><source src="assets/images/videos/video-1.mp4" type="video/mp4"></video></div>
+                    <div class="video-item"><video class="video-player" autoplay muted loop playsinline><source src="assets/images/videos/video-2.mp4" type="video/mp4"></video></div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- MAPA DA TRILHA -->
+    <!-- MAPA (mantido) -->
     <section class="trail-map-section" id="trail">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Mapa da Trilha</h2>
                 <p class="section-subtitle">Acompanhe a rota completa da aventura entre Tianguá e Viçosa do Ceará.</p>
             </div>
-            
             <div class="map-container fade-in">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7950.112267414093!2d-41.000000!3d-3.733000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwNDMnNTkuMCJTIDQxwrAwMCcwMC4wIlc!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" 
-                        class="trail-map" allowfullscreen="" loading="lazy"></iframe>
-                    
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7950.112267414093!2d-41.000000!3d-3.733000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwNDMnNTkuMCJTIDQxwrAwMCcwMC4wIlc!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" class="trail-map" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
     
-    <!-- PATROCINADORES COM SEÇÕES DIVIDIDAS E HIERARQUIA DE TAMANHOS -->
+    <!-- PATROCINADORES (mantido, apenas os links de rede social permanecem) -->
     <section class="sponsors-section" id="sponsors">
         <div class="container">
             <div class="section-header">
@@ -1738,617 +1315,178 @@
                 <p class="section-subtitle">Conheça as empresas que tornam possível essa grande aventura off-road.</p>
             </div>
             
-            <!-- PATROCINADORES OURO (TAMANHO BASE: 100%) -->
             <div class="sponsors-category gold fade-in">
                 <h3 class="sponsor-category-title">Patrocinadores Ouro</h3>
                 <div class="sponsor-grid">
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/master-1.png" alt="Patrocinador Ouro" class="sponsor-logo">
-                        <a href="https://www.instagram.com/aresmotos.ce/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/master-2.png" alt="Patrocinador Ouro" class="sponsor-logo">
-                        <a href="https://www.instagram.com/prefeituradetiangua/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/master-3.png" alt="Patrocinador Ouro" class="sponsor-logo">
-                        <a href="https://www.instagram.com/mix_tiangua_264/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/master-4.png" alt="Patrocinador Ouro" class="sponsor-logo">
-                        <a href="https://www.instagram.com/fortiboficial/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/master-5.png" alt="Patrocinador Ouro" class="sponsor-logo">
-                        <a href="https://www.instagram.com/vmpowersports/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-
-                     <div class="sponsor-card">
-                        <img src="assets/images/sponsors/master-6.png" alt="Patrocinador Ouro" class="sponsor-logo">
-                        <a href="https://www.instagram.com/jclovismapurunga/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                     </div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/master-1.png" class="sponsor-logo"><a href="https://www.instagram.com/aresmotos.ce/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/master-2.png" class="sponsor-logo"><a href="https://www.instagram.com/prefeituradetiangua/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/master-3.png" class="sponsor-logo"><a href="https://www.instagram.com/mix_tiangua_264/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/master-4.png" class="sponsor-logo"><a href="https://www.instagram.com/fortiboficial/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/master-5.png" class="sponsor-logo"><a href="https://www.instagram.com/vmpowersports/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/master-6.png" class="sponsor-logo"><a href="https://www.instagram.com/jclovismapurunga/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
                 </div>
             </div>
             
-            <!-- PATROCINADORES PRATA (TAMANHO: 75% DO OURO) -->
             <div class="sponsors-category silver fade-in">
                 <h3 class="sponsor-category-title">Patrocinadores Prata</h3>
                 <div class="sponsor-grid">
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/vip-1.png" alt="Patrocinador Prata" class="sponsor-logo">
-                        <a href="https://www.instagram.com/heltinveiculos/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/vip-2.png" alt="Patrocinador Prata" class="sponsor-logo">
-                        <a href="https://www.instagram.com/manahagricola/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/vip-3.png" alt="Patrocinador Prata" class="sponsor-logo">
-                        <a href="https://www.instagram.com/escolaepaf/?hl=pt-br" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/vip-4.png" alt="Patrocinador Prata" class="sponsor-logo">
-                        <a href="https://www.instagram.com/verdfrutrttiangua/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/vip-5.png" alt="Patrocinador Prata" class="sponsor-logo">
-                        <a href="https://www.instagram.com/icasertiangua/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/vip-6.png" alt="Patrocinador Prata" class="sponsor-logo">
-                        <a href="https://www.instagram.com/odontomedis/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/vip-7.png" alt="Patrocinador Prata" class="sponsor-logo">
-                        <a href="https://www.instagram.com/pousadasramilos/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/vip-8.png" alt="Patrocinador Prata" class="sponsor-logo">
-                        <a href="https://www.instagram.com/samoel_rodasepneus/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/vip-9.png" alt="Patrocinador Prata" class="sponsor-logo">
-                        <a href="https://www.instagram.com/drogariacarvalho_tiangua/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/vip-10.png" alt="Patrocinador Prata" class="sponsor-logo">
-                        <a href="https://www.instagram.com/oticasgeann/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-
-                      <div class="sponsor-card">
-                        <img src="assets/images/sponsors/vip-11.png" alt="Patrocinador Prata" class="sponsor-logo">
-                        <a href="https://www.instagram.com/joaosalesfilho?igsh=YXJheDdsNjIzaGR2" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/vip-1.png" class="sponsor-logo"><a href="https://www.instagram.com/heltinveiculos/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/vip-2.png" class="sponsor-logo"><a href="https://www.instagram.com/manahagricola/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/vip-3.png" class="sponsor-logo"><a href="https://www.instagram.com/escolaepaf/?hl=pt-br" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/vip-4.png" class="sponsor-logo"><a href="https://www.instagram.com/verdfrutrttiangua/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/vip-5.png" class="sponsor-logo"><a href="https://www.instagram.com/icasertiangua/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/vip-6.png" class="sponsor-logo"><a href="https://www.instagram.com/odontomedis/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/vip-7.png" class="sponsor-logo"><a href="https://www.instagram.com/pousadasramilos/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/vip-8.png" class="sponsor-logo"><a href="https://www.instagram.com/samoel_rodasepneus/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/vip-9.png" class="sponsor-logo"><a href="https://www.instagram.com/drogariacarvalho_tiangua/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/vip-10.png" class="sponsor-logo"><a href="https://www.instagram.com/oticasgeann/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/vip-11.png" class="sponsor-logo"><a href="https://www.instagram.com/joaosalesfilho?igsh=YXJheDdsNjIzaGR2" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
                 </div>
             </div>
             
-            <!-- PATROCINADORES BRONZE (TAMANHO: 50% DO OURO) -->
             <div class="sponsors-category bronze fade-in">
                 <h3 class="sponsor-category-title">Patrocinadores Bronze</h3>
                 <div class="sponsor-grid">
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-13.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="https://www.instagram.com/postodemolaszefilho/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-1.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="https://www.instagram.com/serrafruitmb/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-2.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="https://www.instagram.com/natan_adesivos/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-3.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="https://patrocinador3.com" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-4.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="https://www.instagram.com/pcar.veiculoss/?hl=pt-br" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-5.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="https://patrocinador5.com" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-6.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="https://www.instagram.com/gruposinvalportela/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-7.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="https://www.instagram.com/sitiodobosco/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-8.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="https://www.instagram.com/frankjunior381_/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-9.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="https://patrocinador9.com" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-10.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="https://www.instagram.com/pontess_car/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-11.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="https://patrocinador11.com" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-12.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="https://www.instagram.com/mstruckdiesel_?igsh=MXA4ZzZjZWZ5Y25hYw==" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-14.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="https://www.instagram.com/mercadinho_bompreco?igsh=MTZ6eHh0MWNiNDJ4bQ==" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram
-                        </a>
-                    </div>
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-15.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="https://wa.me/558893291759" class="sponsor-link" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Mande Mensagem no Whatsapp                        </a>
-                    </div>
-                     <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-16.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="https://www.instagram.com/sobrinhohortifruti/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram</a>
-                    </div>
-                     <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-17.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="https://www.instagram.com/paredaodomaracujapdm/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram</a>
-                    </div>
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-18.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="https://www.instagram.com/lojar1men/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram</a>
-                    </div>
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-19.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="https://www.instagram.com/clubedochurrascotga/" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram</a>
-                    </div>
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-20.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram</a>
-                    </div>
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-21.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram</a>
-                    </div>
-                    <div class="sponsor-card">
-                        <img src="assets/images/sponsors/standard-22.png" alt="Patrocinador Bronze" class="sponsor-logo">
-                        <a href="" class="sponsor-link" target="_blank">
-                            <i class="fab fa-instagram"></i> Siga no Instagram</a>
-                    </div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-13.png" class="sponsor-logo"><a href="https://www.instagram.com/postodemolaszefilho/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-1.png" class="sponsor-logo"><a href="https://www.instagram.com/serrafruitmb/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-2.png" class="sponsor-logo"><a href="https://www.instagram.com/natan_adesivos/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-3.png" class="sponsor-logo"><a href="https://patrocinador3.com" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-4.png" class="sponsor-logo"><a href="https://www.instagram.com/pcar.veiculoss/?hl=pt-br" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-5.png" class="sponsor-logo"><a href="https://patrocinador5.com" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-6.png" class="sponsor-logo"><a href="https://www.instagram.com/gruposinvalportela/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-7.png" class="sponsor-logo"><a href="https://www.instagram.com/sitiodobosco/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-8.png" class="sponsor-logo"><a href="https://www.instagram.com/frankjunior381_/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-9.png" class="sponsor-logo"><a href="https://patrocinador9.com" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-10.png" class="sponsor-logo"><a href="https://www.instagram.com/pontess_car/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-11.png" class="sponsor-logo"><a href="https://patrocinador11.com" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-12.png" class="sponsor-logo"><a href="https://www.instagram.com/mstruckdiesel_?igsh=MXA4ZzZjZWZ5Y25hYw==" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-14.png" class="sponsor-logo"><a href="https://www.instagram.com/mercadinho_bompreco?igsh=MTZ6eHh0MWNiNDJ4bQ==" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-15.png" class="sponsor-logo"><a href="https://wa.me/558893291759" class="sponsor-link" target="_blank"><i class="fab fa-whatsapp"></i> Mande Mensagem no Whatsapp</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-16.png" class="sponsor-logo"><a href="https://www.instagram.com/sobrinhohortifruti/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-17.png" class="sponsor-logo"><a href="https://www.instagram.com/paredaodomaracujapdm/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-18.png" class="sponsor-logo"><a href="https://www.instagram.com/lojar1men/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-19.png" class="sponsor-logo"><a href="https://www.instagram.com/clubedochurrascotga/" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-20.png" class="sponsor-logo"><a href="#" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-21.png" class="sponsor-logo"><a href="#" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
+                    <div class="sponsor-card"><img src="assets/images/sponsors/standard-22.png" class="sponsor-logo"><a href="#" class="sponsor-link" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a></div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- NOVA SEÇÃO: CRONOGRAMA -->
+    <!-- CRONOGRAMA (mantido) -->
     <section class="schedule-section" id="schedule">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Cronograma Oficial</h2>
                 <p class="section-subtitle">Confira a programação completa do evento e organize sua participação.</p>
             </div>
-            
             <div class="schedule-container fade-in">
-                <!-- SÁBADO -->
                 <div class="schedule-day">
-                    <div class="day-header">
-                        <h3 class="day-title">Sábado - MIX</h3>
-                        <p class="day-subtitle">Dia de preparação e animação</p>
-                    </div>
-                    
+                    <div class="day-header"><h3 class="day-title">Sábado - MIX</h3><p class="day-subtitle">Dia de preparação e animação</p></div>
                     <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-time">14:00</div>
-                            <div class="timeline-content">
-                                <h4 class="timeline-title">
-                                    <i class="fas fa-flag-checkered timeline-icon"></i>
-                                    Início das atividades
-                                </h4>
-                                <p class="timeline-description">
-                                    ✔️ Entrega de kits<br>
-                                    ✔️ Inscrições no local
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-time">18:00</div>
-                            <div class="timeline-content">
-                                <h4 class="timeline-title">
-                                    <i class="fas fa-music timeline-icon"></i>
-                                    Forró ao vivo
-                                </h4>
-                                <p class="timeline-description">
-                                    Com Kaliane Meneses 🎶💃🕺
-                                </p>
-                                <span class="highlight">Show especial</span>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-time">20:00</div>
-                            <div class="timeline-content">
-                                <h4 class="timeline-title">
-                                    <i class="fas fa-gift timeline-icon"></i>
-                                    Sorteios
-                                </h4>
-                                <p class="timeline-description">
-                                    🏍️ Sorteio de uma CRF 250<br>
-                                    🎁 Sorteio de brindes
-                                </p>
-                                <span class="highlight">Premiação especial</span>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-time">21:00</div>
-                            <div class="timeline-content">
-                                <h4 class="timeline-title">
-                                    <i class="fas fa-clock timeline-icon"></i>
-                                    Encerramento no MIX
-                                </h4>
-                                <p class="timeline-description">
-                                    Encerramento das atividades no local MIX
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-time">22:00</div>
-                            <div class="timeline-content">
-                                <h4 class="timeline-title">
-                                    <i class="fas fa-star timeline-icon"></i>
-                                    Forró no Luar do Sertão
-                                </h4>
-                                <p class="timeline-description">
-                                    Continuação da festa no Restaurante Luar do Sertão 🌙🎶
-                                </p>
-                                <span class="highlight">Festa até altas horas</span>
-                            </div>
-                        </div>
+                        <div class="timeline-item"><div class="timeline-time">14:00</div><div class="timeline-content"><h4 class="timeline-title"><i class="fas fa-flag-checkered timeline-icon"></i>Início das atividades</h4><p class="timeline-description">✔️ Entrega de kits<br>✔️ Inscrições no local</p></div></div>
+                        <div class="timeline-item"><div class="timeline-time">18:00</div><div class="timeline-content"><h4 class="timeline-title"><i class="fas fa-music timeline-icon"></i>Forró ao vivo</h4><p class="timeline-description">Com Kaliane Meneses 🎶💃🕺</p><span class="highlight">Show especial</span></div></div>
+                        <div class="timeline-item"><div class="timeline-time">20:00</div><div class="timeline-content"><h4 class="timeline-title"><i class="fas fa-gift timeline-icon"></i>Sorteios</h4><p class="timeline-description">🏍️ Sorteio de uma CRF 250<br>🎁 Sorteio de brindes</p><span class="highlight">Premiação especial</span></div></div>
+                        <div class="timeline-item"><div class="timeline-time">21:00</div><div class="timeline-content"><h4 class="timeline-title"><i class="fas fa-clock timeline-icon"></i>Encerramento no MIX</h4><p class="timeline-description">Encerramento das atividades no local MIX</p></div></div>
+                        <div class="timeline-item"><div class="timeline-time">22:00</div><div class="timeline-content"><h4 class="timeline-title"><i class="fas fa-star timeline-icon"></i>Forró no Luar do Sertão</h4><p class="timeline-description">Continuação da festa no Restaurante Luar do Sertão 🌙🎶</p><span class="highlight">Festa até altas horas</span></div></div>
                     </div>
                 </div>
-                
-                <!-- DOMINGO -->
                 <div class="schedule-day">
-                    <div class="day-header">
-                        <h3 class="day-title">Domingo - Dia da Trilha</h3>
-                        <p class="day-subtitle">Dia principal da aventura off-road</p>
-                    </div>
-                    
+                    <div class="day-header"><h3 class="day-title">Domingo - Dia da Trilha</h3><p class="day-subtitle">Dia principal da aventura off-road</p></div>
                     <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-time">07:00</div>
-                            <div class="timeline-content">
-                                <h4 class="timeline-title">
-                                    <i class="fas fa-coffee timeline-icon"></i>
-                                    Concentração
-                                </h4>
-                                <p class="timeline-description">
-                                    ☕ Café da manhã<br>
-                                    🍉 Mesa de frutas
-                                </p>
-                                <span class="highlight">Preparação final</span>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-time">08:30</div>
-                            <div class="timeline-content">
-                                <h4 class="timeline-title">
-                                    <i class="fas fa-flag timeline-icon"></i>
-                                    Largada oficial
-                                </h4>
-                                <p class="timeline-description">
-                                    ⏱️ Tolerância de atraso de até 30 minutos
-                                </p>
-                                <span class="highlight">Início da aventura!</span>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-time">11:30</div>
-                            <div class="timeline-content">
-                                <h4 class="timeline-title">
-                                    <i class="fas fa-utensils timeline-icon"></i>
-                                    Almoço
-                                </h4>
-                                <p class="timeline-description">
-                                    📍 Balneário do Alex – Oiticicas 🍽️🌴
-                                </p>
-                                <span class="highlight">Refeição de apoio</span>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-time">17:00</div>
-                            <div class="timeline-content">
-                                <h4 class="timeline-title">
-                                    <i class="fas fa-trophy timeline-icon"></i>
-                                    Término previsto
-                                </h4>
-                                <p class="timeline-description">
-                                    📍 Chegada no MIX<br>
-                                    Encerramento oficial do evento
-                                </p>
-                                <span class="highlight">Conclusão da trilha</span>
-                            </div>
-                        </div>
+                        <div class="timeline-item"><div class="timeline-time">07:00</div><div class="timeline-content"><h4 class="timeline-title"><i class="fas fa-coffee timeline-icon"></i>Concentração</h4><p class="timeline-description">☕ Café da manhã<br>🍉 Mesa de frutas</p><span class="highlight">Preparação final</span></div></div>
+                        <div class="timeline-item"><div class="timeline-time">08:30</div><div class="timeline-content"><h4 class="timeline-title"><i class="fas fa-flag timeline-icon"></i>Largada oficial</h4><p class="timeline-description">⏱️ Tolerância de atraso de até 30 minutos</p><span class="highlight">Início da aventura!</span></div></div>
+                        <div class="timeline-item"><div class="timeline-time">11:30</div><div class="timeline-content"><h4 class="timeline-title"><i class="fas fa-utensils timeline-icon"></i>Almoço</h4><p class="timeline-description">📍 Balneário do Alex – Oiticicas 🍽️🌴</p><span class="highlight">Refeição de apoio</span></div></div>
+                        <div class="timeline-item"><div class="timeline-time">17:00</div><div class="timeline-content"><h4 class="timeline-title"><i class="fas fa-trophy timeline-icon"></i>Término previsto</h4><p class="timeline-description">📍 Chegada no MIX<br>Encerramento oficial do evento</p><span class="highlight">Conclusão da trilha</span></div></div>
                     </div>
-                    
-                    <div class="day-footer" style="margin-top: 30px; padding-top: 15px; border-top: 2px dashed rgba(211, 84, 0, 0.5); text-align: center;">
-                        <p style="font-size: 1.1rem; color: var(--primary-color); font-weight: 700;">
-                            <i class="fas fa-fire"></i> Tianguá Off Road – emoção, adrenalina e muita diversão sobre rodas!
-                        </p>
-                        <p style="margin-top: 10px; font-size: 1rem;">
-                            Chama a turma e vem viver essa experiência! 🏍️💥
-                        </p>
+                    <div class="day-footer" style="margin-top:30px; padding-top:15px; border-top:2px dashed rgba(211,84,0,0.5); text-align:center;">
+                        <p style="font-size:1.1rem; color:var(--primary-color); font-weight:700;"><i class="fas fa-fire"></i> Tianguá Off Road – emoção, adrenalina e muita diversão sobre rodas!</p>
+                        <p style="margin-top:10px; font-size:1rem;">Chama a turma e vem viver essa experiência! 🏍️💥</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- BENEFÍCIOS -->
+    <!-- BENEFÍCIOS (mantido) -->
     <section class="benefits-section" id="benefits">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">KIT DO PARTICIPANTE</h2>
                 <p class="section-subtitle">Veja tudo o que você ganha ao participar de uma das maiores aventuras off-road do Nordeste.</p>
             </div>
-            
             <div class="benefits-grid fade-in">
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-shirt"></i></div>
-                    <h3>Camisa do evento</h3>
-                    <p>Camisa exclusiva para o participante.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-utensils"></i></div>
-                    <h3>Alimentação</h3>
-                    <p>Café da Manhã, Almoço e Mesa de frutas na concentração do evento.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-tools"></i></div>
-                    <h3>Suporte Técnico</h3>
-                    <p>Carro de apoio, apoio médico e apoio mecânico disponível ao longo do percurso.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-gift"></i></div>
-                    <h3>Sorteio de Brindes Exclusivos</h3>
-                    <p>Cobertura especial para todo o período do evento.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-motorcycle"></i></div>
-                    <h3>Sorteio de CRF 250F</h3>
-                    <p>Fotos profissionais de toda a aventura disponíveis para download.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-trophy"></i></div>
-                    <h3>Troféu de Participação</h3>
-                    <p>Troféu especial para marcar essa experiência de aventura única.</p>
-                </div>
+                <div class="benefit-card"><div class="benefit-icon"><i class="fas fa-shirt"></i></div><h3>Camisa do evento</h3><p>Camisa exclusiva para o participante.</p></div>
+                <div class="benefit-card"><div class="benefit-icon"><i class="fas fa-utensils"></i></div><h3>Alimentação</h3><p>Café da Manhã, Almoço e Mesa de frutas na concentração do evento.</p></div>
+                <div class="benefit-card"><div class="benefit-icon"><i class="fas fa-tools"></i></div><h3>Suporte Técnico</h3><p>Carro de apoio, apoio médico e apoio mecânico disponível ao longo do percurso.</p></div>
+                <div class="benefit-card"><div class="benefit-icon"><i class="fas fa-gift"></i></div><h3>Sorteio de Brindes Exclusivos</h3><p>Cobertura especial para todo o período do evento.</p></div>
+                <div class="benefit-card"><div class="benefit-icon"><i class="fas fa-motorcycle"></i></div><h3>Sorteio de CRF 250F</h3><p>Fotos profissionais de toda a aventura disponíveis para download.</p></div>
+                <div class="benefit-card"><div class="benefit-icon"><i class="fas fa-trophy"></i></div><h3>Troféu de Participação</h3><p>Troféu especial para marcar essa experiência de aventura única.</p></div>
             </div>
         </div>
     </section>
     
-    <!-- GALERIA -->
+    <!-- GALERIA (mantido) -->
     <section class="gallery-section" id="gallery">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Galeria</h2>
                 <p class="section-subtitle">Reviva os melhores momentos das edições anteriores.</p>
             </div>
-            
             <div class="gallery-grid fade-in">
-                <a href="assets/images/gallery/foto-1.jpg" class="gallery-item" data-lightbox="gallery">
-                    <img src="assets/images/gallery/foto-1.jpg" alt="Momento da Trilha" class="gallery-img">
-                </a>
-                
-                <a href="assets/images/gallery/foto-2.jpg" class="gallery-item" data-lightbox="gallery">
-                    <img src="assets/images/gallery/foto-2.jpg" alt="Desafio Off-Road" class="gallery-img">
-                </a>
-                
-                <a href="assets/images/gallery/foto-3.jpg" class="gallery-item" data-lightbox="gallery">
-                    <img src="assets/images/gallery/foto-3.jpg" alt="Paisagem Incrível" class="gallery-img">
-                </a>
-                
-                <a href="assets/images/gallery/foto-4.jpg" class="gallery-item" data-lightbox="gallery">
-                    <img src="assets/images/gallery/foto-4.jpg" alt="Concentração Total" class="gallery-img">
-                </a>
-                
-                <a href="assets/images/gallery/foto-5.jpg" class="gallery-item" data-lightbox="gallery">
-                    <img src="assets/images/gallery/foto-5.jpg" alt="Superação" class="gallery-img">
-                </a>
-                
-                <a href="assets/images/gallery/foto-6.jpg" class="gallery-item" data-lightbox="gallery">
-                    <img src="assets/images/gallery/foto-6.jpg" alt="Comunidade Off-Road" class="gallery-img">
-                </a>
+                <a href="assets/images/gallery/foto-1.jpg" class="gallery-item" data-lightbox="gallery"><img src="assets/images/gallery/foto-1.jpg" class="gallery-img"></a>
+                <a href="assets/images/gallery/foto-2.jpg" class="gallery-item" data-lightbox="gallery"><img src="assets/images/gallery/foto-2.jpg" class="gallery-img"></a>
+                <a href="assets/images/gallery/foto-3.jpg" class="gallery-item" data-lightbox="gallery"><img src="assets/images/gallery/foto-3.jpg" class="gallery-img"></a>
+                <a href="assets/images/gallery/foto-4.jpg" class="gallery-item" data-lightbox="gallery"><img src="assets/images/gallery/foto-4.jpg" class="gallery-img"></a>
+                <a href="assets/images/gallery/foto-5.jpg" class="gallery-item" data-lightbox="gallery"><img src="assets/images/gallery/foto-5.jpg" class="gallery-img"></a>
+                <a href="assets/images/gallery/foto-6.jpg" class="gallery-item" data-lightbox="gallery"><img src="assets/images/gallery/foto-6.jpg" class="gallery-img"></a>
             </div>
         </div>
     </section>
     
-    <!-- INSCRIÇÃO -->
+    <!-- SEÇÃO INSCRIÇÃO ADAPTADA -->
     <section class="registration-section" id="registration">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Garanta Sua Vaga</h2>
-                <p class="section-subtitle">As vagas são limitadas! Inscreva-se agora e faça parte da maior aventura off-road do Nordeste.</p>
+                <h2 class="section-title">Inscrições Encerradas</h2>
+                <p class="section-subtitle">Agradecemos o interesse! Fique atento para as próximas edições.</p>
             </div>
-            
             <div class="registration-content fade-in">
                 <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 40px; line-height: 1.7;">
-                    Participe de 2 dias intensos de aventura, superação e muita adrenalina. A trilha inclui suporte técnico, pontos de apoio, seguro e uma experiência inesquecível.
+                    As inscrições para o 2º Trilhão Tianguá Off Road foram encerradas. Agradecemos a todos que se inscreveram e aguardamos vocês para uma aventura inesquecível!
                 </p>
-                
-                <a href="https://forms.gle/4Yzgy5Dostw8SX3n8" class="registration-cta" target="_blank">
-                    <i class="fas fa-flag-checkered"></i> FAZER INSCRIÇÃO ONLINE
-                </a>
-                
+                <div class="registration-closed">INSCRIÇÕES ENCERRADAS</div>
                 <div class="registration-features">
-                    <div class="reg-feature">
-                        <i class="fas fa-bolt"></i>
-                        <h3>Adrenalina Garantida</h3>
-                        <p>120km de trilhas desafiadoras e paisagens incríveis entre Tianguá, Ubajara e Viçosa do Ceará.</p>
-                    </div>
-                    
-                    <div class="reg-feature">
-                        <i class="fas fa-users"></i>
-                        <h3>Comunidade</h3>
-                        <p>Conheça outros apaixonados por off-road e aventura. Networking com pilotos experientes.</p>
-                    </div>
-                    
-                    <div class="reg-feature">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>Segurança Total</h3>
-                        <p>Equipe de apoio, seguro e suporte técnico completo em todos os pontos da trilha.</p>
-                    </div>
+                    <div class="reg-feature"><i class="fas fa-bolt"></i><h3>Adrenalina Garantida</h3><p>120km de trilhas desafiadoras e paisagens incríveis.</p></div>
+                    <div class="reg-feature"><i class="fas fa-users"></i><h3>Comunidade</h3><p>Networking com pilotos experientes.</p></div>
+                    <div class="reg-feature"><i class="fas fa-shield-alt"></i><h3>Segurança Total</h3><p>Equipe de apoio e suporte técnico completo.</p></div>
                 </div>
-                <p class="registration-note">* Vagas limitadas. Inscreva-se já para garantir sua participação!</p>
+                <p class="registration-note">* Próxima edição em breve. Acompanhe nossas redes sociais!</p>
             </div>
         </div>
     </section>
     
-    <!-- RODAPÉ -->
+    <!-- RODAPÉ (mantido) -->
     <footer class="main-footer" id="contact">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="assets/images/logo.png" alt="2º Trilhão Tianguá Off Road" class="footer-logo-img">
-                    <p>2º Trilhão Tianguá Off Road - A maior aventura off-road da Serra da Ibiapaba.</p>
-                </div>
-                
-                <div class="footer-contact">
-                    <h3>Contato</h3>
-                    <ul class="contact-list">
-                        <li><i class="fas fa-phone"></i> (88) 99287-4581</li>
-                        <li><i class="fas fa-phone"></i> (88) 9250-7312</li>
-                        <li><i class="fas fa-envelope"></i> tianguaoffroad@gmail.com</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-social">
-                    <h3>Redes Sociais</h3>
-                    <p>Siga-nos e acompanhe todas as novidades:</p>
-                    <div class="social-icons">
-                        <a href="https://www.instagram.com/equipemorcegodastrilhas/" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/5588992874581" class="social-icon" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
+                <div class="footer-logo"><img src="assets/images/logo.png" class="footer-logo-img"><p>2º Trilhão Tianguá Off Road - A maior aventura off-road da Serra da Ibiapaba.</p></div>
+                <div class="footer-contact"><h3>Contato</h3><ul class="contact-list"><li><i class="fas fa-phone"></i> (88) 99287-4581</li><li><i class="fas fa-phone"></i> (88) 9250-7312</li><li><i class="fas fa-envelope"></i> tianguaoffroad@gmail.com</li></ul></div>
+                <div class="footer-social"><h3>Redes Sociais</h3><p>Siga-nos e acompanhe todas as novidades:</p><div class="social-icons"><a href="https://www.instagram.com/equipemorcegodastrilhas/" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a><a href="https://wa.me/5588992874581" class="social-icon" target="_blank"><i class="fab fa-whatsapp"></i></a></div></div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 2º Trilhão Tianguá Off Road. Todos os direitos reservados.</p>
-                <p>Desenvolvido por Ramilos Comunicações</p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2026 2º Trilhão Tianguá Off Road. Todos os direitos reservados.</p><p>Desenvolvido por Ramilos Comunicações</p></div>
         </div>
     </footer>
     
-    <!-- BOTÃO WHATSAPP FLUTUANTE -->
-    <a href="https://wa.me/558892507312" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <!-- WHATSAPP FLUTUANTE (mantido) -->
+    <a href="https://wa.me/558892507312" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp"><i class="fab fa-whatsapp"></i></a>
     
-    <!-- SCRIPTS -->
+    <!-- SCRIPTS (mantidos) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // INICIALIZAÇÃO
         document.addEventListener('DOMContentLoaded', function() {
-            
-            // PARTÍCULAS DE FUNDO
             particlesJS('particles-js', {
                 particles: {
                     number: { value: 60, density: { enable: true, value_area: 800 } },
@@ -2361,35 +1499,23 @@
                 }
             });
             
-            // CONTADOR REGRESSIVO - DATA ALTERADA PARA 28 DE MARÇO
             const eventDate = new Date('2026-03-28T08:00:00').getTime();
-            
             function updateCountdown() {
                 const now = new Date().getTime();
                 const timeLeft = eventDate - now;
-                
                 if (timeLeft > 0) {
-                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-                    
-                    document.getElementById('days').textContent = days.toString().padStart(2, '0');
-                    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-                    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-                    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-                    
-                    // Efeito de pulso nos números
+                    const days = Math.floor(timeLeft / (1000*60*60*24));
+                    const hours = Math.floor((timeLeft % (1000*60*60*24)) / (1000*60*60));
+                    const minutes = Math.floor((timeLeft % (1000*60*60)) / (1000*60));
+                    const seconds = Math.floor((timeLeft % (1000*60)) / 1000);
+                    document.getElementById('days').textContent = days.toString().padStart(2,'0');
+                    document.getElementById('hours').textContent = hours.toString().padStart(2,'0');
+                    document.getElementById('minutes').textContent = minutes.toString().padStart(2,'0');
+                    document.getElementById('seconds').textContent = seconds.toString().padStart(2,'0');
                     if (seconds % 2 === 0) {
-                        document.querySelectorAll('.countdown-number').forEach(el => {
-                            el.style.transform = 'scale(1.05)';
-                            el.style.color = '#FFD700';
-                        });
+                        document.querySelectorAll('.countdown-number').forEach(el => { el.style.transform = 'scale(1.05)'; el.style.color = '#FFD700'; });
                     } else {
-                        document.querySelectorAll('.countdown-number').forEach(el => {
-                            el.style.transform = 'scale(1)';
-                            el.style.color = 'white';
-                        });
+                        document.querySelectorAll('.countdown-number').forEach(el => { el.style.transform = 'scale(1)'; el.style.color = 'white'; });
                     }
                 } else {
                     document.getElementById('days').textContent = '00';
@@ -2398,150 +1524,65 @@
                     document.getElementById('seconds').textContent = '00';
                 }
             }
-            
             setInterval(updateCountdown, 1000);
             updateCountdown();
             
-            // MENU MOBILE
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const navMenu = document.getElementById('navMenu');
-            
             mobileMenuBtn.addEventListener('click', function() {
                 navMenu.classList.toggle('active');
-                this.innerHTML = navMenu.classList.contains('active') 
-                    ? '<i class="fas fa-times"></i>' 
-                    : '<i class="fas fa-bars"></i>';
+                this.innerHTML = navMenu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
             });
-            
-            // Fechar menu ao clicar em um link
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', function() {
                     navMenu.classList.remove('active');
                     mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    
-                    document.querySelectorAll('.nav-link').forEach(item => {
-                        item.classList.remove('active');
-                    });
+                    document.querySelectorAll('.nav-link').forEach(item => item.classList.remove('active'));
                     this.classList.add('active');
                 });
             });
-            
-            // SCROLL SUAVE
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
-                    
                     const targetId = this.getAttribute('href');
                     if (targetId === '#') return;
-                    
                     const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 90,
-                            behavior: 'smooth'
-                        });
-                    }
+                    if (targetElement) window.scrollTo({ top: targetElement.offsetTop - 90, behavior: 'smooth' });
                 });
             });
-            
-            // HEADER SCROLL EFFECT
             window.addEventListener('scroll', function() {
                 const header = document.querySelector('.main-header');
-                if (window.scrollY > 80) {
-                    header.style.padding = '12px 0';
-                    header.style.background = 'rgba(26, 37, 47, 0.98)';
-                } else {
-                    header.style.padding = '15px 0';
-                    header.style.background = 'rgba(26, 37, 47, 0.98)';
-                }
+                if (window.scrollY > 80) header.style.padding = '12px 0';
+                else header.style.padding = '15px 0';
             });
-            
-            // ANIMAÇÕES DE ENTRADA
             const fadeElements = document.querySelectorAll('.fade-in');
-            
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -80px 0px'
-            };
-            
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, observerOptions);
-            
-            fadeElements.forEach(element => {
-                observer.observe(element);
-            });
-            
-            // LIGHTBOX
-            lightbox.option({
-                'resizeDuration': 300,
-                'wrapAround': true,
-                'albumLabel': "Imagem %1 de %2",
-                'fadeDuration': 400
-            });
-            
-            // ATUALIZAR ANO NO RODAPÉ
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+            }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+            fadeElements.forEach(el => observer.observe(el));
+            lightbox.option({ resizeDuration: 300, wrapAround: true, albumLabel: "Imagem %1 de %2", fadeDuration: 400 });
             const currentYear = new Date().getFullYear();
             const yearElement = document.querySelector('.footer-bottom p');
-            if (yearElement) {
-                yearElement.innerHTML = yearElement.innerHTML.replace('2026', currentYear);
-            }
-            
-            // EFEITO ESPECIAL PARA CONTADOR
+            if (yearElement) yearElement.innerHTML = yearElement.innerHTML.replace('2026', currentYear);
             const countdownItems = document.querySelectorAll('.countdown-item');
             countdownItems.forEach((item, index) => {
-                item.style.animationDelay = `${index * 0.2}s`;
-                
                 setInterval(() => {
                     const number = item.querySelector('.countdown-number');
-                    number.style.textShadow = number.style.textShadow === '0 0 15px rgba(255, 215, 0, 0.8)' 
-                        ? '0 4px 12px rgba(0, 0, 0, 0.5)' 
-                        : '0 0 15px rgba(255, 215, 0, 0.8)';
+                    number.style.textShadow = number.style.textShadow === '0 0 15px rgba(255,215,0,0.8)' ? '0 4px 12px rgba(0,0,0,0.5)' : '0 0 15px rgba(255,215,0,0.8)';
                 }, 3000 + (index * 500));
             });
-            
-            // CONTROLE DE VÍDEOS
             const videoPlayers = document.querySelectorAll('.video-player');
-            videoPlayers.forEach(video => {
-                // Garantir que os vídeos rodem em loop
-                video.loop = true;
-                video.muted = true;
-                video.playsInline = true;
-                
-                // Adicionar controle de clique para pausar/play
-                video.parentElement.addEventListener('click', function() {
-                    if (video.paused) {
-                        video.play();
-                    } else {
-                        video.pause();
-                    }
-                });
-            });
-            
-            // VERIFICAÇÃO DE DISPOSITIVO E BANNER CORRETO
+            videoPlayers.forEach(video => { video.loop = true; video.muted = true; video.playsInline = true; video.parentElement.addEventListener('click', () => { if (video.paused) video.play(); else video.pause(); }); });
             function checkDeviceAndBanner() {
                 const isMobile = window.innerWidth <= 768;
                 const desktopBanner = document.getElementById('top-banner-desktop');
                 const mobileBanner = document.getElementById('top-banner-mobile');
-                
-                if (isMobile) {
-                    desktopBanner.style.display = 'none';
-                    mobileBanner.style.display = 'block';
-                } else {
-                    desktopBanner.style.display = 'block';
-                    mobileBanner.style.display = 'none';
-                }
+                if (isMobile) { desktopBanner.style.display = 'none'; mobileBanner.style.display = 'block'; }
+                else { desktopBanner.style.display = 'block'; mobileBanner.style.display = 'none'; }
             }
-            
-            // Verificar ao carregar e ao redimensionar
             checkDeviceAndBanner();
             window.addEventListener('resize', checkDeviceAndBanner);
         });
     </script>
 </body>
 </html>
-
