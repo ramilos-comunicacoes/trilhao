@@ -1,3 +1,15 @@
+Adicionei um botão abaixo de cada mensagem de "INSCRIÇÕES ENCERRADAS" para acessar a lista de inscritos no Google Drive. O link é o mesmo para todos: `https://drive.google.com/drive/folders/1RnZtzn8BiFJjNzKrnEI-_J7FxKk9o5bk?usp=sharing`.
+
+As alterações foram feitas:
+- No banner desktop e mobile, abaixo do `banner-closed` foi adicionado um elemento `.banner-list-link`.
+- Na seção hero, abaixo do `hero-closed` foi adicionado um elemento `.hero-list-link`.
+- Na seção de inscrição, abaixo do `registration-closed` foi adicionado um elemento `.registration-list-link`.
+
+Estilos foram criados para esses novos botões, mantendo a consistência visual com o restante do site.
+
+Abaixo está o código completo com as modificações:
+
+```html
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
     <style>
-        /* ===== CONFIGURAÇÕES GERAIS (mantidas) ===== */
+        /* ===== CONFIGURAÇÕES GERAIS ===== */
         :root {
             --primary-color: #D35400;
             --secondary-color: #2C3E50;
@@ -62,7 +74,7 @@
             pointer-events: none;
         }
 
-        /* ===== HEADER (mantido) ===== */
+        /* ===== HEADER ===== */
         .main-header {
             position: fixed;
             top: 0;
@@ -144,7 +156,7 @@
             cursor: pointer;
         }
 
-        /* ===== BANNERS COM MENSAGEM DE INSCRIÇÕES ENCERRADAS ===== */
+        /* ===== BANNERS ===== */
         .desktop-banner-container {
             position: relative;
             width: 100%;
@@ -189,10 +201,10 @@
             z-index: 1;
         }
 
-        /* Mensagem no banner (substitui o botão de inscrição) */
+        /* Mensagem no banner */
         .banner-closed {
             position: absolute;
-            top: 50%;
+            top: 40%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 10;
@@ -212,6 +224,37 @@
             cursor: default;
         }
 
+        /* Botão para a lista de inscritos no banner */
+        .banner-list-link {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            display: inline-block;
+            padding: 14px 40px;
+            background: linear-gradient(45deg, #2c3e50, #1a252f);
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            text-align: center;
+            white-space: nowrap;
+            border: 2px solid var(--primary-color);
+            backdrop-filter: blur(4px);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .banner-list-link:hover {
+            transform: translate(-50%, -50%) scale(1.02);
+            background: linear-gradient(45deg, #1a252f, #2c3e50);
+            border-color: #ffaa66;
+            box-shadow: 0 0 15px rgba(211,84,0,0.5);
+        }
+
         @media (max-width: 768px) {
             .banner-closed {
                 padding: 14px 30px;
@@ -219,6 +262,15 @@
                 white-space: normal;
                 width: 80%;
                 max-width: 300px;
+                top: 35%;
+            }
+            .banner-list-link {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                white-space: normal;
+                width: 80%;
+                max-width: 300px;
+                top: 65%;
             }
         }
 
@@ -226,6 +278,10 @@
             .banner-closed {
                 padding: 12px 20px;
                 font-size: 1.1rem;
+            }
+            .banner-list-link {
+                font-size: 0.8rem;
+                padding: 8px 15px;
             }
         }
 
@@ -352,7 +408,7 @@
             color: #ffaa66;
         }
 
-        /* Botão da hero substituído por texto */
+        /* Botões da hero */
         .hero-closed {
             display: inline-block;
             padding: 15px 40px;
@@ -366,6 +422,29 @@
             cursor: default;
             box-shadow: none;
             backdrop-filter: blur(4px);
+            margin-bottom: 20px;
+        }
+
+        .hero-list-link {
+            display: inline-block;
+            padding: 12px 35px;
+            background: linear-gradient(45deg, #2c3e50, #1a252f);
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 40px;
+            text-decoration: none;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .hero-list-link:hover {
+            transform: scale(1.02);
+            background: linear-gradient(45deg, #1a252f, #2c3e50);
+            border-color: #ffaa66;
+            box-shadow: 0 0 15px rgba(211,84,0,0.5);
         }
 
         /* ===== MOTOCICLETA ===== */
@@ -537,7 +616,7 @@
             border: none;
         }
 
-        /* ===== PATROCINADORES (mantido) ===== */
+        /* ===== PATROCINADORES ===== */
         .sponsors-section {
             background: rgba(77, 55, 43, 0.8);
         }
@@ -725,7 +804,7 @@
             box-shadow: 0 8px 20px rgba(211, 84, 0, 0.4);
         }
 
-        /* ===== CRONOGRAMA (mantido) ===== */
+        /* ===== CRONOGRAMA ===== */
         .schedule-section {
             background: rgba(10, 10, 10, 0.9);
         }
@@ -864,7 +943,7 @@
             font-size: 0.85rem;
         }
 
-        /* ===== BENEFÍCIOS (mantido) ===== */
+        /* ===== BENEFÍCIOS ===== */
         .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -958,6 +1037,29 @@
             margin: 20px auto;
         }
 
+        .registration-list-link {
+            display: inline-block;
+            padding: 12px 35px;
+            background: linear-gradient(45deg, #2c3e50, #1a252f);
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 40px;
+            text-decoration: none;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .registration-list-link:hover {
+            transform: scale(1.02);
+            background: linear-gradient(45deg, #1a252f, #2c3e50);
+            border-color: #ffaa66;
+            box-shadow: 0 0 15px rgba(211,84,0,0.5);
+        }
+
         .registration-features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -981,7 +1083,7 @@
             border-left: 4px solid var(--accent-color);
         }
 
-        /* ===== RODAPÉ (mantido) ===== */
+        /* ===== RODAPÉ ===== */
         .main-footer {
             background: var(--dark-color);
             padding: 60px 0 30px;
@@ -1092,7 +1194,7 @@
             font-size: 36px;
         }
 
-        /* ===== RESPONSIVIDADE (mantida) ===== */
+        /* Responsividade */
         @media (max-width: 1200px) {
             .hero-logo { max-width: 400px; }
             .section-title { font-size: 2.5rem; }
@@ -1186,6 +1288,7 @@
             .countdown { grid-template-columns: repeat(2, 1fr); }
             .countdown-item { min-width: 90px; padding: 12px 5px; }
             .hero-closed, .registration-closed { padding: 12px 30px; font-size: 1.3rem; }
+            .hero-list-link, .registration-list-link { padding: 10px 20px; font-size: 0.85rem; }
             .video-gallery { grid-template-columns: 1fr; }
             .video-item { height: 160px; }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1230,20 +1333,23 @@
         </div>
     </header>
     
-    <!-- BANNERS COM MENSAGEM "INSCRIÇÕES ENCERRADAS" -->
+    <!-- BANNER DESKTOP -->
     <div class="desktop-banner-container" id="top-banner-desktop">
         <img src="assets/images/banner-inicio-desktop.png" alt="Banner Inicial Desktop" class="desktop-banner">
         <div class="banner-overlay"></div>
         <div class="banner-closed">INSCRIÇÕES ENCERRADAS</div>
+        <a href="https://drive.google.com/drive/folders/1RnZtzn8BiFJjNzKrnEI-_J7FxKk9o5bk?usp=sharing" class="banner-list-link" target="_blank">ACESSE A LISTA DE INSCRITOS E CONFIRA SUA NUMERAÇÃO</a>
     </div>
     
+    <!-- BANNER MOBILE -->
     <div class="mobile-banner-container" id="top-banner-mobile">
         <img src="assets/images/banner-inicio-mobile.png" alt="Banner Inicial Mobile" class="mobile-banner">
         <div class="banner-overlay"></div>
         <div class="banner-closed">INSCRIÇÕES ENCERRADAS</div>
+        <a href="https://drive.google.com/drive/folders/1RnZtzn8BiFJjNzKrnEI-_J7FxKk9o5bk?usp=sharing" class="banner-list-link" target="_blank">ACESSE A LISTA DE INSCRITOS E CONFIRA SUA NUMERAÇÃO</a>
     </div>
     
-    <!-- HERO SECTION COM MENSAGEM ENCERRADA -->
+    <!-- HERO SECTION -->
     <section class="hero-section" id="home">
         <img src="assets/images/banner.png" alt="Banner 2º Trilhão Tianguá" class="hero-banner">
         <div class="hero-overlay"></div>
@@ -1264,6 +1370,7 @@
                 <p class="countdown-note"><strong>Inscrições Encerradas.</strong> Agradecemos a participação de todos!</p>
             </div>
             <div class="hero-closed">INSCRIÇÕES ENCERRADAS</div>
+            <a href="https://drive.google.com/drive/folders/1RnZtzn8BiFJjNzKrnEI-_J7FxKk9o5bk?usp=sharing" class="hero-list-link" target="_blank">ACESSE A LISTA DE INSCRITOS E CONFIRA SUA NUMERAÇÃO</a>
         </div>
     </section>
     
@@ -1294,7 +1401,7 @@
         </div>
     </section>
     
-    <!-- MAPA (mantido) -->
+    <!-- MAPA -->
     <section class="trail-map-section" id="trail">
         <div class="container">
             <div class="section-header">
@@ -1307,7 +1414,7 @@
         </div>
     </section>
     
-    <!-- PATROCINADORES (mantido, apenas os links de rede social permanecem) -->
+    <!-- PATROCINADORES (mantido, apenas os links de rede social) -->
     <section class="sponsors-section" id="sponsors">
         <div class="container">
             <div class="section-header">
@@ -1457,6 +1564,7 @@
                     As inscrições para o 2º Trilhão Tianguá Off Road foram encerradas. Agradecemos a todos que se inscreveram e aguardamos vocês para uma aventura inesquecível!
                 </p>
                 <div class="registration-closed">INSCRIÇÕES ENCERRADAS</div>
+                <a href="https://drive.google.com/drive/folders/1RnZtzn8BiFJjNzKrnEI-_J7FxKk9o5bk?usp=sharing" class="registration-list-link" target="_blank">ACESSE A LISTA DE INSCRITOS E CONFIRA SUA NUMERAÇÃO</a>
                 <div class="registration-features">
                     <div class="reg-feature"><i class="fas fa-bolt"></i><h3>Adrenalina Garantida</h3><p>120km de trilhas desafiadoras e paisagens incríveis.</p></div>
                     <div class="reg-feature"><i class="fas fa-users"></i><h3>Comunidade</h3><p>Networking com pilotos experientes.</p></div>
@@ -1479,7 +1587,7 @@
         </div>
     </footer>
     
-    <!-- WHATSAPP FLUTUANTE (mantido) -->
+    <!-- WHATSAPP FLUTUANTE -->
     <a href="https://wa.me/558892507312" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp"><i class="fab fa-whatsapp"></i></a>
     
     <!-- SCRIPTS (mantidos) -->
@@ -1586,3 +1694,4 @@
     </script>
 </body>
 </html>
+```
